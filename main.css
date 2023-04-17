@@ -1,0 +1,140 @@
+body{
+    background: #1A120B;
+    font-family: 'Lato';
+}
+
+.title{
+    color: white;
+    font-size: 50px;
+}
+
+.title1{
+    color: white;
+    font-size: 30px;
+}
+
+.navBar{
+    display: grid;
+    grid-template-columns: 20% 40% 30%;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+}
+
+.nav-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 20px;
+    list-style: none;   
+    cursor: pointer;
+    margin-left: 50px;
+
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+}
+
+.searchBar{
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+
+}
+
+#searchBar{
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    margin-left: 50%;
+    height: 50px;
+}
+
+.newTopic{
+    margin-top: 30px;
+    height: 100%;
+    width: 100%;
+}
+
+.whiteline{
+    background-color: white;;
+    border-radius: 5px;
+    height: 5px;
+    margin: 70px 0;
+}
+
+.displayGrid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    place-items: center;
+}
+
+.elipse-background{
+    background-color: black;
+    width: 90%;
+    height: 500px;
+    border-radius: 50% / 250px;
+
+    position: relative;
+    right: 200px;
+    
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+.marginRight{
+    margin-right: 50px;
+}
+.marginLeft{
+    margin-left: 50px;
+}
+
+.clothes-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 100px;
+}
+
+
+
+.clothes-card{
+    width: 200;
+    height: 305px;
+    border: none;
+
+    display: grid;
+    grid-template-rows: 80% 10% 10%;
+}
+
+.image-background{
+    background-image: url('img/tshirt1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.clothes-type, .clothes-price{
+    color: white;
+    text-align: center;
+}
+
+footer{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    place-items: center;
+}
+
+.contact-list{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    color: white;
+}
