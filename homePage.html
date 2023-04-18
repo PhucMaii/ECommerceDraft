@@ -5,34 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REW</title>
     <link rel="stylesheet" href="main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Lato&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter:wght@400;700&family=Lato&family=Libre+Baskerville&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js"></script>
 </head>
 <body>
     <div class="navBar">
-        <div class="logo" style="background-image: url('img/logo.png'); background-size: cover; background-repeat: no-repeat;"></div>
+        <div class="logo" style="background-image: url('img/logo.png'); background-size: cover; background-repeat: no-repeat; border-radius: 50%;"></div>
+
         <nav>
-            <ul class="nav-list">
+
+            <ul class="nav-list" id="topNav">
                 <li>Home</li>
-                <li>Shop</li>
+                <li>Products</li>
                 <li>Contact</li>
                 <li>About</li>
+                <li>Your Cart</li>
+
             </ul>
+            <a href="#" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+              </a>
         </nav>
         <div class="searchBar">
             <input type="text" id="searchBar" placeholder="Search For Clothes...">
         </div>
     </div>
 
-    <div class="newTopic" style="background-image: url('img/newTopic.jpg'); background-size: cover; background-repeat: no-repeat;">
-        
+    <div class="newTopic" style="background-image: url('img/newTopic.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center">
+        <button class="shopNewTopicButton">Shop now</button>
     </div>
 
-    <div style="display:grid; justify-content:flex-end; grid-template-columns: 50%;align-items: center;">
+    <div class="whiteline-container flexEnd">
         <div class="whiteline">
         </div>
     </div>
-    <div class="displayGrid">
-        <div class=" elipse-background">
+    <div class="displayGrid" id="newArrivalClothes-container">
+        <div class=" elipse-background toRight flexEnd">
             <h1 class="title marginRight">New Arrival</h1>
         </div>
         <div id="newArrivalClothes" class="clothes-container">
@@ -79,11 +88,11 @@
 
     </div>
 
-    <div style="display:grid; justify-content:flex-start; grid-template-columns: 50%;align-items: center;">
+    <div class="whiteline-container flexStart">
         <div class="whiteline">
         </div>
     </div>
-    <div class="displayGrid">
+    <div class="displayGrid" id="bestSellerClothes-container">
        
         <div class="clothes-container" id="bestSellerClothes">
             <div class="clothes-card" >
@@ -127,8 +136,8 @@
             </div>
         </div>
 
-        <div class=" elipse-background" style="justify-content: flex-start; left: 200;">
-            <h1 class="title marginLeft">Best Seller</h1>
+        <div class=" elipse-background toLeft flexStart" >
+            <h1 class="title marginLeft" id="bestSellerTitle">Best Seller</h1>
         </div>
     </div>
     <div style="display:grid; justify-content:center; grid-template-columns: 75%;align-items: center;">
@@ -146,7 +155,7 @@
         </div>
         <div class="fanpage">
             <h2 class="title1">Fanpage:</h2>
-            <img src="img/fanpage.png" style="width: 550px; height: 150px">
+            <img src="img/fanpage.png" class="fanpage-image">
         </div>
     </footer>
 </body>

@@ -1,7 +1,11 @@
 body{
-    background: #1A120B;
-    font-family: 'Lato';
+    background-color: rgb(63, 63, 63);
+    font-family: 'Cormorant Garamond';
+    margin: 0;
+    overflow-x: hidden;
+
 }
+
 
 .title{
     color: white;
@@ -16,6 +20,7 @@ body{
 .navBar{
     display: grid;
     grid-template-columns: 20% 40% 30%;
+    
 }
 
 .logo{
@@ -23,7 +28,12 @@ body{
     height: 100px;
 }
 
+.icon{
+    display: none;
+}
+
 .nav-list{
+    box-shadow: rgba(11, 11, 11, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -37,6 +47,16 @@ body{
     border-radius: 5px;
     padding: 20px;
     width: 100%;
+
+
+
+}
+.nav-list li{
+    transition: 0.5s ease-in-out;
+}
+
+.nav-list li:hover{
+    letter-spacing: 2px;
 }
 
 .searchBar{
@@ -55,14 +75,46 @@ body{
     width: 100%;
     margin-left: 50%;
     height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
 
 .newTopic{
     margin-top: 30px;
-    height: 100%;
+    height: 90%;
     width: 100%;
+    background-size: cover;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
+.shopNewTopicButton{
+    padding: 15px 25px;
+    margin-right: 8em;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.5);
+    border: none;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: 0.5s ease-in-out;
+}
+.shopNewTopicButton:hover{
+    background-color: grey;
+    color: white;
+}
+
+.whiteline-container{
+    display:grid; grid-template-columns: 50%;align-items: center
+}
+.flexEnd{
+    justify-content: flex-end;
+}
+
+.flexStart{
+    justify-content: flex-start;
+}
 .whiteline{
     background-color: white;;
     border-radius: 5px;
@@ -77,19 +129,24 @@ body{
 }
 
 .elipse-background{
-    background-color: black;
-    width: 90%;
-    height: 500px;
-    border-radius: 50% / 250px;
+background-color: rgb(29, 28, 28);
+width: 90%;
+height: 500px;
+border-radius: 50% / 250px;
+position: relative;
 
-    position: relative;
-    right: 200px;
-    
+box-shadow: rgba(237, 236, 236, 0.653) 0px 10px 36px 0px, rgba(246, 245, 245, 0.746) 0px 0px 0px 1px;
+display: flex;
+align-items: center;
 
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+}
 
+.toRight{
+    right: 200;
+}
+
+.toLeft{
+    left: 200;
 }
 .marginRight{
     margin-right: 50px;
@@ -132,9 +189,212 @@ footer{
     place-items: center;
 }
 
+.fanpage-image{
+    width: 550px;
+    height: 150px;
+}
+
 .contact-list{
     display: flex;
     flex-direction: column;
     gap: 30px;
     color: white;
+}
+
+
+@media only screen and (max-width: 900px) {
+
+    .navBar{
+        grid-template-columns: 10% 60% 30%;
+    }
+    body{
+        overflow-x: hidden;
+    }
+    .nav-list{
+        width: 90%;
+        gap: 10px;
+        padding: 20px 10px;
+    }
+    #searchBar{
+        margin-left: 50px;
+    }    
+    .shopNewTopicButton{
+        margin-right: 20px;
+    }
+    .title{
+        font-size: 30px;
+    }
+
+    .elipse-background{
+        width: 90%;
+        height: 380;
+        border-radius: 50% / 190px;
+    }
+
+    .toRight{
+        right: 150px;
+    }
+    .toLeft{
+        left: 150px;
+    }
+
+    .clothes-card{
+        width: 100px;
+        height: 175px;
+    }
+    .clothes-container{
+        gap: 50px;
+    }
+
+    .fanpage-image{
+        width: 100%;
+        height: 50%;
+        border-radius: 20px;
+        box-shadow: rgba(146, 112, 112, 0.16) 0px 10px 36px 0px, rgba(166, 72, 72, 0.06) 0px 0px 0px 1px;
+
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .logo{
+        width: 80px;
+        height: 80px;
+    }
+    .navBar{
+        display: grid;
+        grid-template-columns: 20% 70% 10%;
+        
+    }
+    nav{
+        grid-column: 3/-1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        opacity: 0.8;
+    }
+    .icon{
+        display: block;
+        color: white;
+        margin-right: 15;
+    }
+    .nav-list{
+        display: none;
+    }
+    .searchBar{
+        grid-column: 2/3;
+        grid-row: 1/2;
+        width: 100%;
+    }
+    #searchBar{
+        margin-left: 15%;
+        width: 100%;
+    }
+
+    .shopNewTopicButton{
+        margin-right: 10px;
+        opacity: 0.8;
+        padding: 10px 15px;
+    }
+
+    .whiteline-container{
+        grid-template-columns: 75%;
+    }
+
+    .whiteline{
+        height: 2px;
+    }
+
+    .flexEnd ,.flexStart{
+        justify-content: center;
+    }
+    .toRight{
+        right: 0;
+        top:-50;
+    }
+    .toLeft{
+        left: 0;
+        top: -50;
+    }
+
+    .title{
+        font-size: 30;
+    }
+    .displayGrid{
+        grid-template-rows: 50% 50%;
+        grid-template-columns: 100%;
+    }
+
+    .elipse-background{
+        height: 50px;
+        width: 80%;
+        border-radius: 20px;
+        background: none;
+        justify-content: center;
+        padding: 10px;
+        box-shadow: none;
+
+    }
+
+    .clothes-card{
+        width: 100px;
+        height: 175px;
+    }
+    .clothes-container{
+        gap: 50px;
+    }
+
+    #newArrivalClothes-container{
+        position: relative;
+        top:-100;
+    }
+    #bestSellerClothes-container{
+        position: relative;
+        top: -100;
+    }
+
+    #bestSellerClothes{
+        grid-row: 2/3;
+    }
+    #bestSellerTitle{
+        grid-row: 1/2;
+    }
+    
+    .marginLeft, .marginRight{
+        margin: 0;
+    }
+
+    footer{
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+        margin: 0px 20px;
+    }
+    .fanpage-image{
+        width: 100%;
+        height: 50%;
+        border-radius: 20px;
+        box-shadow: rgba(146, 112, 112, 0.16) 0px 10px 36px 0px, rgba(166, 72, 72, 0.06) 0px 0px 0px 1px;
+
+    }
+    
+
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-list.responsive{
+        display: block;
+        position: absolute;
+        left: -50;
+        top: 80;
+        width: 90%;
+        border-radius: 0;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .nav-list.responsive li{
+        display: block;
+
+    }
 }
