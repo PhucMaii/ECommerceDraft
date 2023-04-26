@@ -1,0 +1,51 @@
+body{
+    font-family: "Libre Baskerville"
+}
+
+.left{
+    margin-left: 5%;
+}
+
+.allProduct-main-container{
+    display: grid;
+    grid-template-columns: 5% 15% 75% 5%; 
+    place-content:start center;
+}
+
+.sorting-button{
+    width: 100%;
+    grid-column: 2/3;
+    
+
+}
+.allProduct-container{
+    width: 80%;
+    grid-column: 3/4;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    margin-left: 100px;
+}
+
+.clothes-card{
+    margin-bottom: 50px;
+}
+#sorting{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+}
+
+.title2{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.description{
+    font-size: smaller;
+    margin-top: 10px;
+}

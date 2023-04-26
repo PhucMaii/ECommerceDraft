@@ -1,0 +1,234 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Libre Baskerville';
+    background-color: #6B6B6B;
+
+}
+.logo{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+
+    z-index: 10;
+}
+
+.image-background{
+    background-position: center center;
+    background-size: cover;    
+    background-repeat: no-repeat;
+}
+
+#signupPage .image-background{
+    background-image: url('../img/signup.jpg');
+}
+
+#loginPage .image-background{
+    background-image: url('../img/login.jpg');
+}
+
+.main-container{
+    width: 60rem;
+    height: 40rem;
+    overflow: hidden;
+
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+
+    width: 60rem;
+    height: 40rem;
+    border-radius: 20px;
+
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: 0.5s ease-in-out;
+
+}
+
+.toLoginPage{
+    display: grid;
+    grid-template-rows: 60% 40%;
+
+    place-items: center;
+}
+
+.leftBorderRadius{
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+}
+
+.rightBorderRadius{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.registerForm{
+    width: 100%;
+    height: 100%;
+    background-color: #B9B9B9;
+    
+    display: grid;
+    grid-template-rows: 15% 70% 15%;
+    place-items: center;
+}
+
+.loginForm{
+    width: 100%;
+    height: 100%;
+    background-color: #B9B9B9;
+    
+    display: grid;
+    grid-template-rows: 20% 70% 10%;
+    place-items: center;
+
+}
+
+.title{
+    font-size: 35px;
+    text-align: center;
+    font-weight: bolder;
+    font-family: "Merriweather" "sans";
+}
+
+.title1{
+    text-align: center;
+    color: #BFBFBF;
+}
+.title1 p{
+    color: #f4f0f0;
+}
+
+.input-section{
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.loginForm .input-section{
+    gap: 50px;
+}
+
+.inputContainer{
+    width: 20rem;
+}
+
+.inputContainer input, .inputContainer label{
+    width: 100%;
+}
+
+.inputContainer input{
+    background-color: #909090;
+    color: black;
+    padding :10px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 3px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+}
+
+.btn{
+    font-size: 20px;
+    border-radius: 20px;
+    font-family: "Roboto";
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.signupBtn{
+    width: 40%;
+    padding: 10px;
+    border: none;
+    text-align: center;
+
+    background: black;
+    color: #999999;
+}   
+
+.toAnotherPage{
+    height: 18%;
+    width: 40%;
+    border: none;
+
+    background-color: #BFBFBF;
+    color: black;
+}
+
+.up{
+    transform: translateY(-100%);
+}
+
+@media only screen and (max-width: 1200px){
+    .main-container{
+        width:100%
+    }
+
+    .logo{
+        width: 50px;
+        height: 50px;
+    }
+    .container{
+        width: 100%;
+    }
+
+    .title{
+        font-size: 30px;
+    }
+}
+@media only screen and (max-width: 600px){
+    body{
+        display: block;
+        padding: none;
+        font-size: xx-small;
+    }
+    .main-container{
+
+        width: 100%;
+        height: 100%;
+    }
+    .container{
+       grid-template-columns: 100%;
+       grid-template-rows: 20% 80%; 
+       border-radius: 0;
+       width: 100%;
+       height: 100%;
+    }
+
+    .image-background{
+        background-color: transparent;
+        background-image: none;
+        width: 100%
+    }
+
+    .title{
+        font-size: 20px;
+    }
+
+    .btn{
+        font-size: 10px;
+    }
+    .toAnotherPage{
+        height: 50%;
+    }
+
+    .leftBorderRadius{
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+    }
+    
+    .rightBorderRadius{
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+    }
+}

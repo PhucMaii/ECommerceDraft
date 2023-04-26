@@ -1,3 +1,7 @@
+html{
+    overflow-x: hidden;
+}
+
 body{
     background-color: rgb(63, 63, 63);
     font-family: 'Cormorant Garamond';
@@ -21,6 +25,44 @@ body{
     display: grid;
     grid-template-columns: 20% 40% 30%;
     
+}
+
+#dropDown-menu{
+    display: inline-block;
+    position: relative;
+}
+
+.product-type-container{
+    position: absolute;
+    display: none;
+    background-color: #f1f1f1;
+    padding: 10px;
+    border: 1px solid white;
+    list-style: none;
+    border-radius: 10px;
+    min-width: 100px;
+    z-index: 10;
+
+}
+#dropDown-menu:hover .product-type-container{
+    display: block;
+}
+
+.product-type {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-button{
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+
+.product-type:hover{
+    background-color: grey;
 }
 
 .logo{
@@ -47,12 +89,9 @@ body{
     border-radius: 5px;
     padding: 20px;
     width: 100%;
-
-
-
 }
 .nav-list li{
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 .nav-list li:hover{
@@ -116,7 +155,7 @@ body{
     justify-content: flex-start;
 }
 .whiteline{
-    background-color: white;;
+    background-color: #B1B1B1;;
     border-radius: 5px;
     height: 5px;
     margin: 70px 0;
@@ -186,6 +225,9 @@ align-items: center;
 footer{
     display: grid;
     grid-template-columns: 50% 50%;
+}
+
+.center{
     place-items: center;
 }
 
@@ -202,7 +244,9 @@ footer{
 }
 
 
-@media only screen and (max-width: 900px) {
+
+
+@media only screen and (min-width: 601px) and (max-width: 900px) {
 
     .navBar{
         grid-template-columns: 10% 60% 30%;

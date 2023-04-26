@@ -6,3 +6,17 @@ function myFunction() {
       x.className = "nav-list";
     }
   }
+
+let bool = false;
+function showProducts() {
+  const productTypeContainer = document.getElementById('product-type-container');
+  if(bool) {
+    productTypeContainer.classList.add('displayNone')
+    bool = false;
+  } else{
+    productTypeContainer.classList.remove('displayNone')
+
+    bool = true;
+
+  }
+}

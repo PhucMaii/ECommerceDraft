@@ -1,0 +1,203 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REW</title>
+    <link rel="stylesheet" href="individual.css">
+    <link rel="stylesheet" href="../main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter:wght@400;700&family=Lato&family=Libre+Baskerville&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="navBar">
+        <div class="logo" style="background-image: url('../img/logo.png'); background-size: cover; background-repeat: no-repeat; border-radius: 50%;"></div>
+
+        <nav>
+            <ul class="nav-list" id="topNav">
+                <li>Home</li>
+                <li id="dropDown-menu">
+                    Shop
+                    <ul class="product-type-container" id="product-type-container">
+                        <li class="product-type">Shirts</li>
+                        <li class="product-type">Pants</li>
+                        <li class="product-type">Sweaters</li>
+                        <li class="product-type">Hoodies</li>
+                        <li class="product-type">Jacket</li>
+                    </ul>
+                </li>
+
+
+                <li>Contact</li>
+                <li>About</li>
+                <li>Your Cart</li>
+
+            </ul>
+            <a href="#" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+              </a>
+        </nav>
+        <div class="searchBar">
+            <input type="text" id="searchBar" placeholder="Search For Clothes...">
+        </div>
+    </div>
+
+    <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
+        <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+        </div>
+    </div>
+
+    <div class="main-container">
+      <div class="main-info-container">
+        <div class="image"  style="background-image: url('../img/tshirt2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+        </div>
+
+        <div class="info-container">
+            <h2>REW BASIC TEE</h2>
+
+            <div class="info-block">
+              <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: flex-start;" >
+                <div class="whiteline" style="height: 1px; margin-bottom: 10px;">
+                </div>
+              </div>
+
+              <p class="price left title2">200,000 VND</p>
+
+            </div>
+            
+            <div class="info-block">
+              <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: start;">
+                <div class="whiteline" style="height: 1px; margin-bottom: 10px;">
+                </div>
+            </div>
+
+              <div class="size-main-container left">
+                  <p class="title2">Size</p>
+                  <div class="size-container">
+                    <div class="size-child-container">
+                      <label>
+                        <input type="radio" name="size" value="S"> S
+                      </label>
+                    </div>
+
+                    <div class="size-child-container">
+                      <label >
+                        <input type="radio" name="size" value="M"> M
+                      </label>
+                    </div>
+
+                    <div class="size-child-container">
+                      <label>
+                        <input type="radio" name="size" value="L"> L
+                      </label>
+                    </div>
+
+                    <div class="size-child-container">
+                      <label>
+                        <input type="radio" name="size" value="XL"> XL
+                      </label>
+                    </div>
+                  </div>
+
+                
+              </div>
+            </div>
+           
+            <div class="info-block">
+              <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: start; ">
+                <div class="whiteline" style="height: 1px; margin-bottom: 10px;">
+                </div>
+              </div>
+              <div class="color-main-container left">
+                  <p class="title2">Color</p>
+                  <div class="color-container">
+                    <div class="color-child-container">
+                      <input type="radio" name="color" value="black"> 
+    
+                    </div>
+                    
+                    <div class="color-child-container">
+                      <input type="radio" name="color" value="white"> 
+                    </div>
+                    
+                    <div class="color-child-container">
+                      <input type="radio" name="color" value="grey"> 
+                    </div>
+                    
+                    <div class="color-child-container">
+                      <input type="radio" name="color" value="blue"> 
+                    </div>
+                  </div>
+                  
+                  
+              </div>
+            </div>
+           
+            <div class="info-block">
+              <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: flex-start;">
+                <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+                </div>
+              </div>
+  
+              <div class="quantity left">
+                <button class="quantity-btn subtract">-</button>
+                <div class="displayQuantity">0</div>
+                <button class="quantity-btn add">+</button>
+              </div>
+  
+              <div class="button-group left">
+                <button class="button">Add to cart</button>
+                <button class="button left">Buy now</button>
+              </div>
+  
+              <div class="description-group left">
+                <h4>Description</h4>
+                <ul>
+                  <li>Type: T-Shirt</li>
+                  <li>Fabric: 100% Cotton</li>
+                  <li>Style: Streetwear</li>
+                </ul>
+              </div>
+            </div>    
+        </div>  
+        
+      </div>
+    </div>
+
+    <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
+      <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+      </div>
+    </div>
+   
+    <div class="product-related-container">
+      <h3 class="title1 left">Product related to this item</h3>
+      <div class="image-container">
+        <div class="image1" style="background-image: url(../img/relatedTshirt.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
+        <div class="image1" style="background-image: url(../img/relatedTshirt.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
+        <div class="image1" style="background-image: url(../img/relatedTshirt.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
+        <div class="image1" style="background-image: url(../img/relatedTshirt.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
+      </div>
+    </div>
+
+    <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
+      <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+      </div>
+  </div>
+  <footer class="left">
+      <div class="contact">
+          <h2 class="title1">Contact:</h2>
+          <ul class="contact-list">
+              <li>Address: 146/42B Vo Thi Sau, Quan 3, Phuong 8</li>
+              <li>Phone: 123456789</li>
+              <li>Email: onlyrewrew@gmail.com</li>
+          </ul>
+      </div>
+      <div class="fanpage">
+          <h2 class="title1">Fanpage:</h2>
+          <img src="../img/fanpage.png" class="fanpage-image">
+      </div>
+  </footer>
+
+
+</body>

@@ -3,18 +3,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REW</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="shop.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter:wght@400;700&family=Lato&family=Libre+Baskerville&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js"></script>
+
 </head>
 <body>
     <div class="navBar">
-        <div class="logo" style="background-image: url('img/logo.png'); background-size: cover; background-repeat: no-repeat; border-radius: 50%;"></div>
+        <div class="logo" style="background-image: url('../img/logo.png'); background-size: cover; background-repeat: no-repeat; border-radius: 50%;"></div>
 
         <nav>
-
             <ul class="nav-list" id="topNav">
                 <li>Home</li>
                 <li id="dropDown-menu">
@@ -43,119 +42,128 @@
         </div>
     </div>
 
-    <div class="newTopic" style="background-image: url('img/newTopic.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center">
-        <button class="shopNewTopicButton">Shop now</button>
-    </div>
-
-    <div class="whiteline-container flexEnd">
-        <div class="whiteline">
-        </div>
-    </div>
-    <div class="displayGrid" id="newArrivalClothes-container">
-        <div class=" elipse-background toRight flexEnd">
-            <h1 class="title marginRight">New Arrival</h1>
-        </div>
-        <div id="newArrivalClothes" class="clothes-container">
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type">
-                    T-Shirt
-                </div>
-                <div class="clothes-price">
-                    200,000 VND
-                </div>
-            </div>
-         
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type">
-                    T-Shirt
-                </div>
-                <div class="clothes-price">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type">
-                    T-Shirt
-                </div>
-                <div class="clothes-price">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type">
-                    T-Shirt
-                </div>
-                <div class="clothes-price">
-                    200,000 VND
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="whiteline-container flexStart">
-        <div class="whiteline">
-        </div>
-    </div>
-    <div class="displayGrid" id="bestSellerClothes-container">
-       
-        <div class="clothes-container" id="bestSellerClothes">
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type">
-                    T-Shirt
-                </div>
-                <div class="clothes-price">
-                    200,000 VND
-                </div>
-            </div>
-         
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type">
-                    T-Shirt
-                </div>
-                <div class="clothes-price">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type">
-                    T-Shirt
-                </div>
-                <div class="clothes-price">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type">
-                    T-Shirt
-                </div>
-                <div class="clothes-price">
-                    200,000 VND
-                </div>
-            </div>
-        </div>
-
-        <div class=" elipse-background toLeft flexStart" >
-            <h1 class="title marginLeft" id="bestSellerTitle">Best Seller</h1>
-        </div>
-    </div>
-    <div style="display:grid; justify-content:center; grid-template-columns: 75%;align-items: center;">
+    <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
         <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
         </div>
     </div>
-    <footer class="center">
+
+    <h2 class="title2">ALL PRODUCTS</h2>
+
+    <div class="allProduct-main-container">
+        <div class="sorting-button">
+            <select id="sorting">
+                <option value="default">All Products</option>
+                <option value="earliest">Oldest</option>
+                <option value="latest">Newest</option>
+                <option value="bestSeller">Best Seller</option>
+                <option value="clearance">Clearance</option>
+                <option value="lowest">Price: Lowest</option>
+                <option value="highest">Price: Highest</option>
+                <option value="a-z">Name: A-Z</option>
+                <option value="z-a">Name: Z-A</option>
+            </select>
+        </div>
+
+        <div class="allProduct-container">
+            <div class="clothes-card" >
+                <div class="image-background"></div>
+                <div class="clothes-type description">
+                    T-Shirt
+                </div>
+                <div class="clothes-price description">
+                    200,000 VND
+                </div>
+            </div>
+
+            <div class="clothes-card" >
+                <div class="image-background"></div>
+                <div class="clothes-type description">
+                    T-Shirt
+                </div>
+                <div class="clothes-price description">
+                    200,000 VND
+                </div>
+            </div>
+
+            <div class="clothes-card" >
+                <div class="image-background"></div>
+                <div class="clothes-type description">
+                    T-Shirt
+                </div>
+                <div class="clothes-price description">
+                    200,000 VND
+                </div>
+            </div>
+
+            <div class="clothes-card" >
+                <div class="image-background"></div>
+                <div class="clothes-type description">
+                    T-Shirt
+                </div>
+                <div class="clothes-price description">
+                    200,000 VND
+                </div>
+            </div>
+
+            <div class="clothes-card" >
+                <div class="image-background"></div>
+                <div class="clothes-type description">
+                    T-Shirt
+                </div>
+                <div class="clothes-price description">
+                    200,000 VND
+                </div>
+            </div>
+
+            <div class="clothes-card" >
+                <div class="image-background"></div>
+                <div class="clothes-type description">
+                    T-Shirt
+                </div>
+                <div class="clothes-price description">
+                    200,000 VND
+                </div>
+            </div>
+
+            <div class="clothes-card" >
+                <div class="image-background"></div>
+                <div class="clothes-type description">
+                    T-Shirt
+                </div>
+                <div class="clothes-price description">
+                    200,000 VND
+                </div>
+            </div>
+
+            <div class="clothes-card" >
+                <div class="image-background"></div>
+                <div class="clothes-type description">
+                    T-Shirt
+                </div>
+                <div class="clothes-price description">
+                    200,000 VND
+                </div>
+            </div>
+
+            <div class="clothes-card" >
+                <div class="image-background"></div>
+                <div class="clothes-type description">
+                    T-Shirt
+                </div>
+                <div class="clothes-price description">
+                    200,000 VND
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
+        <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+        </div>
+    </div>
+    <footer class="left">
         <div class="contact">
             <h2 class="title1">Contact:</h2>
             <ul class="contact-list">
@@ -166,8 +174,9 @@
         </div>
         <div class="fanpage">
             <h2 class="title1">Fanpage:</h2>
-            <img src="img/fanpage.png" class="fanpage-image">
+            <img src="../img/fanpage.png" class="fanpage-image">
         </div>
     </footer>
+
 </body>
 </html>
