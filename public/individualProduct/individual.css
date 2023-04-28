@@ -86,7 +86,7 @@ body{
     border: none;
     font-size: 15px;
     box-shadow: 0 5px 0 #868686;
-    transition: all 0.2s linear
+    transition: all 0.1s linear
 }
 
 .button:hover{
