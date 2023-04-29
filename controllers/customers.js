@@ -1,10 +1,12 @@
 const CustomerModel = require('../models/customers');
+const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const AdminModel = require('../models/admins')
 
 const customerSignUp = async (req, res) => {
+
     const incomingData = req.body;
     
     // Encrypting Password

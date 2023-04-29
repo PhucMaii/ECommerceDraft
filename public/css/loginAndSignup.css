@@ -24,11 +24,11 @@ body{
 }
 
 #signupPage .image-background{
-    background-image: url('../img/signup.jpg');
+    background-image: url('/img/signup.jpg');
 }
 
 #loginPage .image-background{
-    background-image: url('../img/login.jpg');
+    background-image: url('/img/login.jpg');
 }
 
 .main-container{

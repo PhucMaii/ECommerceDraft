@@ -15,22 +15,28 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use(express.static('public'));
 
+mongoose.connect(process.env.MONGODB_URL).then((response) => {
+    console.log("Database is connected")
+}).catch((error) => {
+    console.log(error);
+})
+
 app.use('/api/v1/admins', AdminRoute);
 app.use('/api/v1/customers', CustomerRoute);
 app.use('/api/v1/clothes', ClothesRoute);
 
 
-app.get('/home', (req, res) => {
-    res.sendFile(__dirname + '/public/homePage.html');
-})
+// app.get('/home', (req, res) => {
+//     res.sendFile(__dirname + '/public/homePage.html');
+// })
 
-app.get('/home/cart', (req, res) => {
-    res.sendFile(__dirname + '/public/cart/cart.html')
-})
+// app.get('/home/cart', (req, res) => {
+//     res.sendFile(__dirname + '/public/cart/cart.html')
+// })
 
-app.get('/home/shop', (req, res) => {
-    res.sendFile(__dirname + '/public/shop/shop.html')
-})
+// app.get('/home/shop', (req, res) => {
+//     res.sendFile(__dirname + '/public/shop/shop.html')
+// })
 
 
 app.listen(PORT, () => {

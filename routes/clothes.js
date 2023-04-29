@@ -1,8 +1,13 @@
 const express = require('express');
+const path = require('path');
 const router = express.Router();
-const ClothesController = reuqire('../controller/clothes')
+const ClothesController = require('../controllers/clothes')
+
+
+router.use(express.static(path.join(__dirname, "../public")));
 
 // API for clothes
+
 // Add Clothes
 router.post('/', ClothesController.createClothes);
 
@@ -16,7 +21,7 @@ router.delete('/:id', ClothesController.deleteClothes);
 router.put('/:id', ClothesController.updateClothes);
 
 // Get all Clothes
-router.get('/', ClothesController.getAllClothes);
+router.get('/allClothes', ClothesController.getAllClothes);
 
 // Order Clothes
 router.put('/order/:id', ClothesController.orderClothes);
