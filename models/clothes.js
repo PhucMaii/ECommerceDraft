@@ -30,6 +30,15 @@ const ClothesSchema = new mongoose.Schema({
 
     quantity: {
         type: Number
+    },
+    isNewArrival: {
+        type: Boolean
+    },
+    isBestSeller: {
+        type: Boolean
+    },
+    img: {
+        type: String
     }
 
 }, {

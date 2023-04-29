@@ -114,8 +114,8 @@ const getAllClothes = async (req, res) => {
         decodeToken = jwt.verify(token, process.env.SECRETKEY);
 
         try{
-            const foundAdmin = await AdminModel.findOne({email: decodeToken.email});
-            if(foundAdmin) {
+            const foundCustomer = await CustomerModel.findOne({email: decodeToken.email});
+            if(foundCustomer) {
                 const response = await ClothesModel.find();
 
                 return res.status(200).json({

@@ -7,7 +7,7 @@ const CustomerController = require('../controllers/customers')
 router.use(express.static(path.join(__dirname, "../public")));
 // API for customers
 // HomePage
-router.get('/', (req, res) => {
+router.get('/dashboard', (req, res) => {
     const filePath = path.join(__dirname, '..', 'public', 'html', 'homePage.html');
     res.sendFile(filePath);
 });
@@ -19,7 +19,7 @@ router.get('/signup', (req, res) => {
 })
 
 // Customer Sign Up
-router.post('/', CustomerController.customerSignUp);
+router.post('/signup', CustomerController.customerSignUp);
 
 // Get a customer by an ID
 router.get('/:id', CustomerController.getCustomerById);
@@ -34,6 +34,6 @@ router.delete('/:id', CustomerController.deleteCustomer);
 router.put('/:id', CustomerController.updateCustomer);
 
 // Get all Customer
-router.get('/allCustomers', CustomerController.getAllCustomer);
+router.get('/', CustomerController.getAllCustomer);
 
 module.exports = router;

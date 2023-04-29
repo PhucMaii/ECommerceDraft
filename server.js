@@ -11,6 +11,7 @@ const AdminRoute = require('./routes/admins')
 const ClothesRoute = require('./routes/clothes')
 
 
+
 app.use(express.json());
 app.use(morgan('dev'));
 app.use(express.static('public'));
@@ -22,8 +23,11 @@ mongoose.connect(process.env.MONGODB_URL).then((response) => {
 })
 
 app.use('/api/v1/admins', AdminRoute);
+
 app.use('/api/v1/customers', CustomerRoute);
+
 app.use('/api/v1/clothes', ClothesRoute);
+
 
 
 // app.get('/home', (req, res) => {

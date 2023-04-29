@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const AdminController = require('../controllers/admins')
 
-router.use(express.static('public'));
+// router.use(express.static('public'));
 // API for admins
 // admin Sign Up
 router.post('/', AdminController.adminSignUp);

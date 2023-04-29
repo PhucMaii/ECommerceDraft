@@ -21,37 +21,31 @@
                 </div>
                 <button class="btn toAnotherPage" onclick="toLoginPage()">Log in</button>
             </div>
-            <form class="registerForm rightBorderRadius">
+            <form class="registerForm rightBorderRadius" onsubmit="signUpFormSubmit(event)">
                 <h2 class="title">Register to join with us</h2>
                 <div class="input-section">
                     <div class="inputContainer">
-                        <label for="">Enter your Username</label>
+                        <label for="">Enter your Name</label>
                         <br>
-                        <input type="text" placeholder="Username...">
+                        <input id="signup-name" type="text" placeholder="Name...">
                     </div>
         
                     <div class="inputContainer">
                         <label for="">Enter your Email</label>
                         <br>
-                        <input type="text" placeholder="Email...">
-                    </div>
-        
-                    <div class="inputContainer">
-                        <label for="">Enter your Phone Number</label>
-                        <br>
-                        <input type="text" placeholder="Phone number...">
+                        <input id="signup-email" type="text" placeholder="Email...">
                     </div>
         
                     <div class="inputContainer">
                         <label for="">Enter your Password</label>
                         <br>
-                        <input type="text" placeholder="Password...">
+                        <input id="signup-password" type="text" placeholder="Password...">
                     </div>
         
                     <div class="inputContainer">
                         <label for="">Confirm Password</label>
                         <br>
-                        <input type="text" placeholder="Confirm Password...">
+                        <input id="signup-confirmPassword" type="text" placeholder="Confirm Password...">
                     </div>
                 </div>
     
@@ -76,13 +70,13 @@
                     <div class="inputContainer">
                         <label for="">Enter your Email</label>
                         <br>
-                        <input type="text" placeholder="Email or Phone Number...">
+                        <input id="login-email" type="text" placeholder="Email...">
                     </div>
         
                     <div class="inputContainer">
                         <label for="">Enter your Password</label>
                         <br>
-                        <input type="text" placeholder="Password...">
+                        <input id="login-password" type="text" placeholder="Password...">
                     </div>
 
     

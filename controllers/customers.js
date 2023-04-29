@@ -6,7 +6,6 @@ const jwt = require('jsonwebtoken');
 const AdminModel = require('../models/admins')
 
 const customerSignUp = async (req, res) => {
-
     const incomingData = req.body;
     
     // Encrypting Password
@@ -20,10 +19,11 @@ const customerSignUp = async (req, res) => {
         }) 
 
         const response = await newCustomer.save();
-        return res.status(201).json({
-            data: response,
-            message: "Customer Created Successfully"
+        return res.status(200).json({
+            message: "Created Successfully",
+            data: response
         })
+        
 
     } catch(error) {
        return res.status(500).json({
@@ -48,6 +48,7 @@ const customerLogin = async (req, res) => {
                 password: foundCustomer.password
             }, process.env.SECRETKEY)
 
+            res.redirect('/');
             return res.status(200).json({
                 data: foundCustomer,
                 message: "Login Successfully",
@@ -139,14 +140,15 @@ const deleteCustomer = async (req, res) => {
 
 // Only Admin can get all customer
 const getAllCustomer = async (req, res) => {
+    console.log("hi");
     const token = req.headers?.authorization?.split(" ")[1];
     let decodeToken;
-
     if(token) {
         decodeToken = jwt.verify(token, process.env.SECRETKEY);
-
+        console.log(decodeToken)
         try{
             const foundAdmin = await AdminModel.findOne({email: decodeToken.email});
+            console.log(foundAdmin);
             if(foundAdmin) {
                 const response = await CustomerModel.find();
 
@@ -209,11 +211,43 @@ const getCustomerById = async (req, res) => {
     }
 }
 
+const loadDashBoard = async (req, res) => {
+    const token = req.headers?.authorization?.split(" ")[1];
+    let decodeToken;
+    if (token) {
+        decodeToken = jwt.verify(token, process.env.SECRETKEY);
+        try {
+            const ifUserExist = await CustomerModel.findOne({email: decodeToken.email});
+            if (ifUserExist) {
+                return res.status(200).json({
+                    message: "Load Dashboard",
+                    data: ifUserExist
+                })
+            } else {
+                return res.status(401).json({
+                    message: "Customer Doesn't Exist"
+                })
+            }
+        } catch(error) {
+            return res.status(500).json({
+                message: "There was an error",
+                error
+            })
+        }
+    } else {
+        return res.status(500).json({
+            message: "You need to provide access token"
+        })
+    }
+
+}
+
 module.exports = {
     customerSignUp, 
     customerLogin, 
     updateCustomer, 
     deleteCustomer, 
     getAllCustomer,
-    getCustomerById
+    getCustomerById,
+    loadDashBoard
 }

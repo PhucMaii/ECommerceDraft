@@ -4,7 +4,7 @@ const router = express.Router();
 const ClothesController = require('../controllers/clothes')
 
 
-router.use(express.static(path.join(__dirname, "../public")));
+// router.use(express.static(path.join(__dirname, "../public")));
 
 // API for clothes
 
