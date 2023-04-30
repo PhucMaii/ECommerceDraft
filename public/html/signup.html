@@ -24,10 +24,12 @@
             <form class="registerForm rightBorderRadius" onsubmit="signUpFormSubmit(event)">
                 <h2 class="title">Register to join with us</h2>
                 <div class="input-section">
+                    <div id="email-notification"></div>
                     <div class="inputContainer">
                         <label for="">Enter your Name</label>
                         <br>
                         <input id="signup-name" type="text" placeholder="Name...">
+
                     </div>
         
                     <div class="inputContainer">
@@ -46,6 +48,7 @@
                         <label for="">Confirm Password</label>
                         <br>
                         <input id="signup-confirmPassword" type="text" placeholder="Confirm Password...">
+                        <div id="confirmPassword-notification"></div>
                     </div>
                 </div>
     
@@ -63,10 +66,10 @@
                 </div>
                 <button class="btn toAnotherPage" onclick="toSignUpPage()">Sign up</button>
             </div>
-            <form class="loginForm rightBorderRadius">
+            <form class="loginForm rightBorderRadius" onsubmit="loginFormSubmit(event)">
                 <h2 class="title">WELCOME BACK TO REW</h2>
                 <div class="input-section">
-        
+                    <div id="notification"></div>
                     <div class="inputContainer">
                         <label for="">Enter your Email</label>
                         <br>

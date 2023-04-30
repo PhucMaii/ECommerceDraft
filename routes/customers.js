@@ -18,6 +18,10 @@ router.get('/signup', (req, res) => {
     res.sendFile(filePath);
 })
 
+// Get to show individual product
+router.get('/individualProduct/:id', CustomerController.showIndividualProduct)
+
+
 // Customer Sign Up
 router.post('/signup', CustomerController.customerSignUp);
 

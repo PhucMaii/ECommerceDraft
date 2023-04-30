@@ -3,7 +3,8 @@ const path = require('path');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const AdminModel = require('../models/admins')
+const AdminModel = require('../models/admins');
+const ClothesModel = require('../models/clothes');
 
 const customerSignUp = async (req, res) => {
     const incomingData = req.body;
@@ -12,18 +13,26 @@ const customerSignUp = async (req, res) => {
     const encryptedPassword = await bcrypt.hash(incomingData.password, 10);
 
     try {
-        const newCustomer = new CustomerModel({
-            name: incomingData.name,
-            email: incomingData.email,
-            password: encryptedPassword
-        }) 
+        const isCustomerExist = await CustomerModel.findOne({email: incomingData.email});
 
-        const response = await newCustomer.save();
-        return res.status(200).json({
-            message: "Created Successfully",
-            data: response
-        })
-        
+        if (!isCustomerExist) {
+            const newCustomer = new CustomerModel({
+                name: incomingData.name,
+                email: incomingData.email,
+                password: encryptedPassword
+            }) 
+    
+            const response = await newCustomer.save();
+            return res.status(200).json({
+                message: "Created Successfully",
+                data: response
+            })
+        } else {
+            return res.status(500).json({
+                message: "This Email Exists",
+                error: 'error'
+            })
+        }
 
     } catch(error) {
        return res.status(500).json({
@@ -48,7 +57,6 @@ const customerLogin = async (req, res) => {
                 password: foundCustomer.password
             }, process.env.SECRETKEY)
 
-            res.redirect('/');
             return res.status(200).json({
                 data: foundCustomer,
                 message: "Login Successfully",
@@ -242,6 +250,21 @@ const loadDashBoard = async (req, res) => {
 
 }
 
+const showIndividualProduct = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const response = await ClothesModel.findById(id);
+        if (response) {
+            const filePath = path.join(__dirname, '..', 'public', 'html', 'individual.html');
+            res.sendFile(filePath);
+        } else {
+            return res.send("Your Clothes Couldn't Found")
+        }
+    } catch(error) {
+        return res.send("Your Clothes Couldn't Found")
+    }
+
+}
 module.exports = {
     customerSignUp, 
     customerLogin, 
@@ -249,5 +272,6 @@ module.exports = {
     deleteCustomer, 
     getAllCustomer,
     getCustomerById,
-    loadDashBoard
+    loadDashBoard,
+    showIndividualProduct
 }

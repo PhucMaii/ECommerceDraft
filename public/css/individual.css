@@ -97,7 +97,7 @@ body{
 .button:active {
     box-shadow: 0 2px 0 #868686;
     transform: translateY(3px);
-  }
+}
 
 input[name="color"] {
     -webkit-appearance: none;

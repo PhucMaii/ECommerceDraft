@@ -4,7 +4,7 @@ const router = express.Router();
 const ClothesController = require('../controllers/clothes')
 
 
-// router.use(express.static(path.join(__dirname, "../public")));
+router.use(express.static(path.join(__dirname, "../public")));
 
 // API for clothes
 
@@ -21,7 +21,7 @@ router.delete('/:id', ClothesController.deleteClothes);
 router.put('/:id', ClothesController.updateClothes);
 
 // Get all Clothes
-router.get('/allClothes', ClothesController.getAllClothes);
+router.get('/', ClothesController.getAllClothes);
 
 // Order Clothes
 router.put('/order/:id', ClothesController.orderClothes);
