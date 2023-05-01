@@ -11,7 +11,8 @@ function toLoginPage(){
 
 function toSignUpPage() {
     signupPage.classList.remove('up');
-    loginPage.classList.remove('up')
+    loginPage.classList.remove('up');
+
 }
 
 // Fetch API

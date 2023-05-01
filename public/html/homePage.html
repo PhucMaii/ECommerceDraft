@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REW</title>
     <link rel="stylesheet"  href="/css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter:wght@400;700&family=Lato&family=Libre+Baskerville&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Libre+Baskerville&family=Merriweather+Sans:wght@400;500&family=Montserrat:wght@500&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="/js/homePage.js"></script>
+    <script src="/js/homePage.js" defer></script>
+
 </head>
 <body>
     <div class="navBar">
@@ -32,6 +33,8 @@
                 <li>Contact</li>
                 <li>About</li>
                 <li>Your Cart</li>
+                <li onclick="logout()">Log out</li>
+
 
             </ul>
             <a href="#" class="icon" onclick="myFunction()">
@@ -48,7 +51,7 @@
     </div>
 
     <div class="whiteline-container flexEnd">
-        <div class="whiteline">
+        <div class="whiteline m-top">
         </div>
     </div>
     <div class="displayGrid" id="newArrivalClothes-container">
@@ -62,7 +65,7 @@
     </div>
 
     <div class="whiteline-container flexStart">
-        <div class="whiteline">
+        <div class="whiteline m-top">
         </div>
     </div>
     <div class="displayGrid" id="bestSellerClothes-container">
@@ -76,7 +79,7 @@
         </div>
     </div>
     <div style="display:grid; justify-content:center; grid-template-columns: 75%;align-items: center;">
-        <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+        <div class="whiteline m-top" style="height: 1px; margin-bottom: 30px;">
         </div>
     </div>
     <footer class="center">

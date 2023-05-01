@@ -1,6 +1,5 @@
 const ClothesModel = require('../models/clothes');
 const AdminModel = require('../models/admins');
-const CustomerModel = require('../models/customers')
 
 const jwt = require('jsonwebtoken');
 
@@ -107,109 +106,53 @@ const deleteClothes = async (req, res) => {
 }
 
 const getAllClothes = async (req, res) => {
-    const token = req.headers?.authorization?.split(" ")[1];
-    let decodeToken;
+    try{  
+        const response = await ClothesModel.find();
+        return res.status(200).json({
+            message: "Fethed All Clothes Succesfully",
+            data: response
+        })
 
-    if(token) {
-        decodeToken = jwt.verify(token, process.env.SECRETKEY);
-
-        try{
-            const foundCustomer = await CustomerModel.findOne({email: decodeToken.email});
-            if(foundCustomer) {
-                const response = await ClothesModel.find();
-
-                return res.status(200).json({
-                    message: "Fetched All Clothes Successfully",
-                    data: response
-                })
-            } else{
-                return res.status(401).json({
-                    message: "Admin Doesn't Exist"
-                })
-            }
-
-        } catch(error) {
-            return res.status(500).json({
-                message: "There was an error",
-                error
-            })
-        }
-
-    } else {
+    } catch(error) {
         return res.status(500).json({
-            message: "You need to provide access token"
+            message: "There was an error",
+            error
         })
     }
 }
 
 const getClothesById = async (req, res) => {
     const id = req.params.id;
-    const token = req.headers?.authorization?.split(" ")[1];
-    let decodeToken;
-
-    if(token) {
-        decodeToken = jwt.verify(token, process.env.SECRETKEY);
-
-        try {
-            const foundAdmin = await CustomerModel.findOne({email: decodeToken.email});
-            if(foundAdmin) {
-                const response = await ClothesModel.findById(id);
-                return res.status(200).json({
-                    message: `Fetched Clothes ${response.name} Successfully`,
-                    data: response
-                })
-            } else{
-                return res.status(401).json({
-                    message: "Admin Doesn't Exist"
-                })
-            }
-        } catch(error) {
-            return res.status(500).json({
-                message: "There was an error",
-                error
-            })
-        }
-    } else {
+    try{
+        const response = await ClothesModel.findById(id);
+        res.status(200).json({
+            message:"Fetched Clothes By ID Successfully",
+            data: response
+        })
+    } catch(error) {
         return res.status(500).json({
-            message: "You need to provide access token"
+            message: "There was an error",
+            error
         })
     }
 }
 
 const orderClothes = async (req, res) => {
     const id = req.params.id;
-    const token = req.headers?.authorization?.split(" ")[1];
-    let decodeToken;
-
-    if(token) {
-        decodeToken = jwt.verify(token, process.env.SECRETKEY);
-        try {
-            const foundCustomer = await CustomerModel.findOne({email: decodeToken.email});
-            if(foundCustomer) {
-                const response = await ClothesModel.findById(id);
-                response.quantity--;
-                await response.save();
-                return res.status(200).json({
-                    message: `Order ${response.name} Succesfully`,
-                    customer: foundCustomer.name,
-                    data: response
-                })                
-            } else {
-                return res.status(401).json({
-                    message: "Customer Doesn't Exist"
-                })
-            }
-        } catch(error) {
-            return res.status(500).json({
-                message: "There was an error",
-                error
-            })
-        }
-    } else {
-        return res.status(500).json({
-            message: "You need to provide access token"
+    try{    
+        const response = await ClothesModel.findById(id);
+        response.quantity--;
+        await response.save();
+        return res.status(200).json({
+            message: "Order Successfully",
+            data: response
         })
-    }  
+    } catch(error) {
+        return res.status(500).json({
+            message: "There was an error",
+            error
+        })
+    }
 }
 
 module.exports = {

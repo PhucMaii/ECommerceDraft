@@ -39,6 +39,12 @@ const ClothesSchema = new mongoose.Schema({
     },
     img: {
         type: String
+    },
+    sideImg1:{
+        type: String
+    },
+    sideImg2: {
+        type: String
     }
 
 }, {

@@ -6,6 +6,7 @@
     <title>REW</title>
     <link rel="stylesheet" href="/css/individual.css">
     <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/individual.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter:wght@400;700&family=Lato&family=Libre+Baskerville&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -32,6 +33,7 @@
                 <li>Contact</li>
                 <li>About</li>
                 <li>Your Cart</li>
+                <li onclick="logout()">Log out</li>
 
             </ul>
             <a href="#" class="icon" onclick="myFunction()">
@@ -44,21 +46,38 @@
     </div>
 
     <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
-        <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+        <div class="whiteline margin-top" style="height: 1px; margin-bottom: 30px;">
         </div>
     </div>
 
     <div class="main-container">
       <div class="main-info-container">
-        <div class="image"  style="background-image: url('/img/tshirt2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+        <div class="image-slider" id="image-slider">
+
+          <div class="control-button">
+            <button onclick="up()">+</button>
+            <button onclick="down()">-</button>
+          </div>
+
+          <div class="image"  style="background-image: url('/img/tshirt2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+
+          </div>
+          <div class="image"  style="background-image: url('/img/tshirt3.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+
+          </div>
+
+          <div class="image"  style="background-image: url('/img/relatedTshirt.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+
+          </div>
         </div>
 
-        <div class="info-container">
+
+          <div class="info-container">
             <h2>REW BASIC TEE</h2>
 
             <div class="info-block">
               <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: flex-start;" >
-                <div class="whiteline" style="height: 1px; margin-bottom: 10px;">
+                <div class="whiteline  margin-top" style="height: 1px; margin-bottom: 10px;">
                 </div>
               </div>
 
@@ -68,13 +87,14 @@
             
             <div class="info-block">
               <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: start;">
-                <div class="whiteline" style="height: 1px; margin-bottom: 10px;">
+                <div class="whiteline margin-top" style="height: 1px; margin-bottom: 10px;">
                 </div>
-            </div>
+              </div>
 
               <div class="size-main-container left">
                   <p class="title2">Size</p>
                   <div class="size-container">
+
                     <div class="size-child-container">
                       <label>
                         <input type="radio" name="size" value="S"> S
@@ -98,6 +118,7 @@
                         <input type="radio" name="size" value="XL"> XL
                       </label>
                     </div>
+
                   </div>
 
                 
@@ -106,15 +127,16 @@
            
             <div class="info-block">
               <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: start; ">
-                <div class="whiteline" style="height: 1px; margin-bottom: 10px;">
+                <div class="whiteline margin-top" style="height: 1px; margin-bottom: 10px;">
                 </div>
               </div>
+
               <div class="color-main-container left">
                   <p class="title2">Color</p>
                   <div class="color-container">
+
                     <div class="color-child-container">
                       <input type="radio" name="color" value="black"> 
-    
                     </div>
                     
                     <div class="color-child-container">
@@ -128,15 +150,16 @@
                     <div class="color-child-container">
                       <input type="radio" name="color" value="blue"> 
                     </div>
+
                   </div>
                   
                   
               </div>
             </div>
-           
+          
             <div class="info-block">
               <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: flex-start;">
-                <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+                <div class="whiteline margin-top" style="height: 1px; margin-bottom: 30px;">
                 </div>
               </div>
   
@@ -159,14 +182,14 @@
                   <li>Style: Streetwear</li>
                 </ul>
               </div>
-            </div>    
-        </div>  
-        
+
+            </div>
+          </div>
       </div>
     </div>
 
     <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
-      <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+      <div class="whiteline margin-top" style="height: 1px; margin-bottom: 30px;">
       </div>
     </div>
    
@@ -180,10 +203,10 @@
       </div>
     </div>
 
-    <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
-      <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+    <!-- <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
+      <div class="whiteline margin-top" style="height: 1px; margin-bottom: 30px;">
       </div>
-  </div>
+    </div> -->
   <footer class="left">
       <div class="contact">
           <h2 class="title1">Contact:</h2>
@@ -198,6 +221,5 @@
           <img src="/img/fanpage.png" class="fanpage-image">
       </div>
   </footer>
-
 
 </body>

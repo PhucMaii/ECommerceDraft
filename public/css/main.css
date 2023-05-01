@@ -10,6 +10,9 @@ body{
 
 }
 
+.m-top{
+    margin: 50px 0;
+}
 
 .title{
     color: white;
@@ -79,7 +82,7 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    gap: 20px;
+    gap: 5px;
     list-style: none;   
     cursor: pointer;
     margin-left: 50px;
@@ -157,8 +160,8 @@ body{
 .whiteline{
     background-color: #B1B1B1;;
     border-radius: 5px;
-    height: 5px;
-    margin: 70px 0;
+    height: 2px;
+    /* margin: 70px 0; */
 }
 
 .displayGrid{
@@ -222,6 +225,19 @@ align-items: center;
 .clothes-type, .clothes-price{
     color: white;
     text-align: center;
+    font-family: "Merriweather";
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.clothes-type{
+    font-size: 20px; 
+    transition: 0.5s all ease-in-out;
+}
+
+.clothes-type:hover{
+    letter-spacing: 2px;
+    text-decoration: underline;
 }
 
 footer{

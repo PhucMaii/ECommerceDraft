@@ -8,15 +8,30 @@ function myFunction() {
   }
 
 // FETCH API
-const baseUrl = 'http://localhost:2000/api/v1'
-const fetchClothes = async () =>  {
+const baseUrl = 'http://localhost:2000/api/v1';
 
-  const token = localStorage.getItem('access-token');
+const getUserInfo = () => {
+  const userInfo = JSON.parse(localStorage.getItem('current-user'));
+  if(!userInfo) {
+    alert("You need to log in to get access");
+    window.location.href = `${baseUrl}/customers/signup`
+  }
+}
+
+// Log out
+const logout = () => {
+  console.log('hi');
+  localStorage.clear();
+  window.location.href = `${baseUrl}/customers/signup`
+}
+
+
+
+const fetchClothes = async () =>  {
   const response = await fetch(`${baseUrl}/clothes`, {
     method: "GET",
     headers: {
       'Content-type': 'application/json',
-      'Authorization': `Bearer ${token}`
     }
   })
 
@@ -39,11 +54,11 @@ const fetchClothes = async () =>  {
   }
   console.log(newArrival);
   console.log(bestSeller);
-  for (let i = 0; i < newArrival.length ; i++){
+  for (let i = 0; i < 4 ; i++){
     newArrivalClothesSection.innerHTML += `
     <div class="clothes-card" >
       <div style="background-image: url('${newArrival[i].img}'); " class="image-background"></div>
-      <div class="clothes-type">
+      <div class="clothes-type" id=${newArrival[i]._id} onclick="fetchIndividualClothes(event)">
           ${newArrival[i].name}
       </div>
       <div class="clothes-price">
@@ -53,20 +68,36 @@ const fetchClothes = async () =>  {
   `
   }
 
-  for (let i = 0; i < bestSeller.length ; i++){
+  for (let i = 0; i < 4; i++){
     bestSellerSection.innerHTML += `
     <div class="clothes-card" >
-      <div style="background-image: url('${bestSeller[i].img}'); " class="image-background"></div>
-      <div class="clothes-type">
+      <div style="background-image: url('${bestSeller[i].img}'); " class="image-background" ></div>
+      <div class="clothes-type" id=${bestSeller[i]._id} onclick="fetchIndividualClothes(event)">
           ${bestSeller[i].name}
       </div>
-      <div class="clothes-price">
+      <div' class="clothes-price">
           ${bestSeller[i].price}
       </div>
     </div>
   `
   }
-
-
 }
+
+const fetchIndividualClothes = async (event) => {
+  const clothesId = event.target.id;
+  const response = await fetch(`${baseUrl}/clothes/${clothesId}`, {
+    method: "GET",
+    headers: {
+      'Content-type': 'application/json'
+    }
+  })
+
+  const clothesData = await response.json();
+  window.location.href = `${baseUrl}/customers/individualProduct/${clothesData.data._id}`
+}
+
+
 fetchClothes();
+getUserInfo();
+
+
