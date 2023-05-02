@@ -176,6 +176,14 @@ input[value="grey"]{
 input[value="blue"]{
     background-color: #3182ce;
 }
+
+input[value="pink"] {
+    background: rgb(249, 132, 220);
+}
+
+input[value="bisque"] {
+    background-color: bisque;
+}
   
 input[name="color"]:checked {
     border: 2px solid rgb(240, 77, 77);
@@ -188,8 +196,20 @@ input[name="color"]:checked {
 .image1{
     width: 270;
     height: 356 ;
-
 }
+
+.price{
+    color: rgba(128, 237, 252, 0.818);
+    font-size: larger;
+}
+
+.image-child{
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+
 .image-container{
     display: flex;
     justify-content: space-evenly;

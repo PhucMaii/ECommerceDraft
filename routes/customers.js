@@ -40,4 +40,7 @@ router.put('/:id', CustomerController.updateCustomer);
 // Get all Customer
 router.get('/', CustomerController.getAllCustomer);
 
+// Add Clothes to Cart
+router.put('/addToCart/:id', CustomerController.addToCart)
+
 module.exports = router;

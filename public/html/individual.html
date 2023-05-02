@@ -55,20 +55,10 @@
         <div class="image-slider" id="image-slider">
 
           <div class="control-button">
-            <button onclick="up()">+</button>
-            <button onclick="down()">-</button>
+            <button onclick="down()">+</button>
+            <button onclick="up()">-</button>
           </div>
 
-          <div class="image"  style="background-image: url('/img/tshirt2.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
-
-          </div>
-          <div class="image"  style="background-image: url('/img/tshirt3.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
-
-          </div>
-
-          <div class="image"  style="background-image: url('/img/relatedTshirt.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center;">
-
-          </div>
         </div>
 
 
@@ -81,7 +71,7 @@
                 </div>
               </div>
 
-              <p class="price left title2">200,000 VND</p>
+              <p class="left title2" id="price"></p>
 
             </div>
             
@@ -93,35 +83,9 @@
 
               <div class="size-main-container left">
                   <p class="title2">Size</p>
-                  <div class="size-container">
-
-                    <div class="size-child-container">
-                      <label>
-                        <input type="radio" name="size" value="S"> S
-                      </label>
-                    </div>
-
-                    <div class="size-child-container">
-                      <label >
-                        <input type="radio" name="size" value="M"> M
-                      </label>
-                    </div>
-
-                    <div class="size-child-container">
-                      <label>
-                        <input type="radio" name="size" value="L"> L
-                      </label>
-                    </div>
-
-                    <div class="size-child-container">
-                      <label>
-                        <input type="radio" name="size" value="XL"> XL
-                      </label>
-                    </div>
+                  <div class="size-container" id="size-container">
 
                   </div>
-
-                
               </div>
             </div>
            
@@ -133,23 +97,7 @@
 
               <div class="color-main-container left">
                   <p class="title2">Color</p>
-                  <div class="color-container">
-
-                    <div class="color-child-container">
-                      <input type="radio" name="color" value="black"> 
-                    </div>
-                    
-                    <div class="color-child-container">
-                      <input type="radio" name="color" value="white"> 
-                    </div>
-                    
-                    <div class="color-child-container">
-                      <input type="radio" name="color" value="grey"> 
-                    </div>
-                    
-                    <div class="color-child-container">
-                      <input type="radio" name="color" value="blue"> 
-                    </div>
+                  <div class="color-container" id="color-container">
 
                   </div>
                   
@@ -164,9 +112,9 @@
               </div>
   
               <div class="quantity left">
-                <button class="quantity-btn subtract">-</button>
-                <div class="displayQuantity">0</div>
-                <button class="quantity-btn add">+</button>
+                <button class="quantity-btn subtract" id="subtract-quantity" onclick="subtractQuantity()">-</button>
+                <div class="displayQuantity" id="displayQuantity"></div>
+                <button class="quantity-btn add" id="add-quantity" onclick="addQuantity()">+</button>
               </div>
   
               <div class="button-group left">
@@ -176,10 +124,8 @@
   
               <div class="description-group left">
                 <h4>Description</h4>
-                <ul>
-                  <li>Type: T-Shirt</li>
-                  <li>Fabric: 100% Cotton</li>
-                  <li>Style: Streetwear</li>
+                <ul id="description-container">
+
                 </ul>
               </div>
 
@@ -195,11 +141,8 @@
    
     <div class="product-related-container">
       <h3 class="title1 left">Product related to this item</h3>
-      <div class="image-container">
-        <div class="image1" style="background-image: url(/img/relatedTshirt.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
-        <div class="image1" style="background-image: url(/img/relatedTshirt.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
-        <div class="image1" style="background-image: url(/img/relatedTshirt.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
-        <div class="image1" style="background-image: url(/img/relatedTshirt.jpg); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
+      <div class="image-container" id="productRelatedContainer">
+
       </div>
     </div>
 

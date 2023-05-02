@@ -263,7 +263,25 @@ const showIndividualProduct = async (req, res) => {
     } catch(error) {
         return res.send("Your Clothes Couldn't Found")
     }
+}
 
+const addToCart = async (req, res) => {
+    const id = req.params.id;
+    const incomingData = req.body;
+
+    try {
+        const response = await CustomerModel.findByIdAndUpdate(id, incomingData, {returnOriginal: false});
+        return res.status(200).json({
+            messgae: "Add To Cart Successfully",
+            data: response
+        })
+    } catch(error) {
+        return res.status(500).json({
+            message: "There was an error",
+            error
+        })
+    
+    }
 }
 module.exports = {
     customerSignUp, 
@@ -273,5 +291,6 @@ module.exports = {
     getAllCustomer,
     getCustomerById,
     loadDashBoard,
-    showIndividualProduct
+    showIndividualProduct,
+    addToCart
 }

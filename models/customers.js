@@ -13,6 +13,9 @@ const CustomerSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
+    },
+    cart: {
+        type: [String]
     }
 }, {
     timestamps: true

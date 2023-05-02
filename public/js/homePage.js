@@ -62,7 +62,7 @@ const fetchClothes = async () =>  {
           ${newArrival[i].name}
       </div>
       <div class="clothes-price">
-          ${newArrival[i].price}
+          ${newArrival[i].price} VND
       </div>
     </div>
   `
@@ -76,7 +76,7 @@ const fetchClothes = async () =>  {
           ${bestSeller[i].name}
       </div>
       <div' class="clothes-price">
-          ${bestSeller[i].price}
+          ${bestSeller[i].price} VND
       </div>
     </div>
   `
