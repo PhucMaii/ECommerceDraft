@@ -270,7 +270,10 @@ const addToCart = async (req, res) => {
     const incomingData = req.body;
 
     try {
-        const response = await CustomerModel.findByIdAndUpdate(id, incomingData, {returnOriginal: false});
+        const response = await CustomerModel.findById(id);
+        response.cart.push(incomingData);
+        await response.save();
+        
         return res.status(200).json({
             messgae: "Add To Cart Successfully",
             data: response

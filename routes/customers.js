@@ -19,7 +19,13 @@ router.get('/signup', (req, res) => {
 })
 
 // Get to show individual product
-router.get('/individualProduct/:id', CustomerController.showIndividualProduct)
+router.get('/individualProduct/:id', CustomerController.showIndividualProduct);
+
+// Show Cart Page
+router.get('/cart', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'cart.html');
+    res.sendFile(filePath);
+})
 
 
 // Customer Sign Up

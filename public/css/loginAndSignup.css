@@ -172,7 +172,7 @@ body{
 .alert-successfully{
     text-align: center;
     margin-top: 10px;
-    color: rgb(65, 169, 65);
+    color: rgba(65, 169, 65, 0.787);
   }
   
   .alert-error{

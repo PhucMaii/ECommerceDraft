@@ -51,12 +51,6 @@ function subtractQuantity() {
 
 }
 
-function addToCart() {
-    
-}
-
-
-
 // Fetch API
 // Take the id from req.params
 const baseUrl = 'http://localhost:2000/api/v1';
@@ -152,6 +146,80 @@ const fetchProductRelated = async () => {
         </div>
       </div>`
     }
+}
+
+const currentUser = JSON.parse(localStorage.getItem('current-user'));
+
+// Add to cart feature
+const addToCart = async () => {
+    
+    // Get size and color value
+    let sizeValue = "";
+    let colorValue = "";
+
+    // get size and color container
+    const size = document.getElementsByName('size');
+    const color = document.getElementsByName('color');
+
+    // Get quantity value
+    const quantity = document.querySelector('#displayQuantity');
+
+    // Loop through all elements has name = size to find if is there anythin checked
+    for(let i = 0; i < size.length; i++) {
+        if(size[i].checked) {
+            sizeValue = size[i].value;
+        }
+    }
+
+    for(let i = 0; i < color.length; i++) {
+        if(color[i].checked) {
+            colorValue = color[i].value;
+        }
+    }
+    // Get all information of item that user want to add to their cart
+    const addToCartItem = {
+        clothesId: clothesId,
+        color: colorValue,
+        size: sizeValue,
+        quantity: quantity.innerHTML 
+    }
+
+    console.log(addToCartItem)
+    
+
+    const response = await fetch(`${baseUrl}/customers/addToCart/${currentUser._id}`, {
+        method: "PUT",
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+
+    const customerData  = await response.json();
+    const data = customerData.data;
+
+
+    // Get notification line when user don't choose any options for size or color
+    const resultNotification = document.querySelector('#result-notification');
+    resultNotification.innerHTML = "";
+
+    if(sizeValue === "" || colorValue === "") {
+        resultNotification.innerHTML += `<div class="alert-error">No options selected for size or color</div>`
+    }  else if(quantity.innerHTML <= 0) {
+        resultNotification.innerHTML += `<div class="alert-error">Quantity must be greater than 0</div>`
+
+    }
+    
+    else{
+        
+        resultNotification.innerHTML += `<div class="alert-successfully">Add To Cart Successfully</div>`
+        setTimeout(() => {
+            window.location.href = `${baseUrl}/customers/cart`
+        }, 2000 )
+    }
+
+
+    
+
 }
 
 fetchIndividualClothes()

@@ -14,9 +14,23 @@ const CustomerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    cart: {
-        type: [String]
-    }
+    cart: [
+        {
+            clothesId: {
+                type:  mongoose.Schema.Types.ObjectId,
+                ref: "Clothes"
+            },
+            color: {
+                type: String
+            },
+            size: {
+                type: String
+            },
+            quantity: {
+                type: Number
+            }
+        }
+    ]
 }, {
     timestamps: true
 })
