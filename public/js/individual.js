@@ -60,6 +60,8 @@ const clothesId = url.substring(url.lastIndexOf('/') + 1);
 // get clothes type to find related product
 let clothesType = "";
 
+// Get clothes which is showed in this website, then avoid it to be shown in product related
+let mainClothesData;
 const fetchIndividualClothes = async () => {
     const response = await fetch(`${baseUrl}/clothes/${clothesId}`, {
         method: "GET",
@@ -70,6 +72,7 @@ const fetchIndividualClothes = async () => {
 
     const clothesData = await response.json();
     const data = clothesData.data;
+    mainClothesData = data;
     clothesType = data.description.type;
     // Fetch Images and send images to UI
     imageContainer.innerHTML += `
@@ -114,8 +117,6 @@ const fetchIndividualClothes = async () => {
         <li>Fabric: ${data.description.fabric}</li>
         <li>Style: ${data.description.style}</li>
     `
-
-
 } 
 
 const fetchProductRelated = async () => {
@@ -131,7 +132,7 @@ const fetchProductRelated = async () => {
 
     const sameTypeClothes = [];
     for(let i = 0; i < data.length; i++) {
-        if(data[i].description.type === clothesType) {
+        if(data[i].description.type === clothesType && data[i]._id !== mainClothesData._id) {
             sameTypeClothes.push(data[i])
         }
     }
@@ -141,11 +142,26 @@ const fetchProductRelated = async () => {
         productRelatedContainer.innerHTML += `<div class="image-child">
         <div class="image1" style="background-image: url(${sameTypeClothes[i].img}); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
         <div class="clothes-info">
-          <h3 class="clothes-name">${sameTypeClothes[i].name}</h3>
+          <h3 class="clothes-name" id=${sameTypeClothes[i]._id} onclick=toProductRelatedPage(event)>${sameTypeClothes[i].name}</h3>
           <p class="price">${sameTypeClothes[i].price} VND</p>
         </div>
       </div>`
     }
+}
+
+const toProductRelatedPage = async (event) => {
+    const id = event.target.id;
+
+    const response = await fetch(`${baseUrl}/clothes/${id}`, {
+        method: "GET",
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+    const clothesData = await response.json();
+    const data = clothesData.data;
+    window.location.href = `${baseUrl}/customers/individualProduct/${data._id}`
+    
 }
 
 const currentUser = JSON.parse(localStorage.getItem('current-user'));
@@ -216,10 +232,6 @@ const addToCart = async () => {
             window.location.href = `${baseUrl}/customers/cart`
         }, 2000 )
     }
-
-
-    
-
 }
 
 fetchIndividualClothes()
