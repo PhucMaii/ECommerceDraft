@@ -170,3 +170,18 @@ tr{
     background-color: #027C02;
     margin: 0 50 50 50;
 }
+
+.alert-successfully{
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(65, 169, 65);
+  }
+  
+  .alert-error{
+    text-align: center;
+    margin-top: 10px;
+    color: rgba(223, 78, 78, 0.882);
+     /* color:rgb(247, 232, 232); */
+  }
+
+

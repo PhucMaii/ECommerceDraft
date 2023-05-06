@@ -27,6 +27,7 @@ router.get('/cart', (req, res) => {
     res.sendFile(filePath);
 })
 
+router.put('/cart/deleteItem/:id', CustomerController.customerDeleteItemInCart)
 
 // Customer Sign Up
 router.post('/signup', CustomerController.customerSignUp);

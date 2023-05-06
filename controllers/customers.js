@@ -148,7 +148,6 @@ const deleteCustomer = async (req, res) => {
 
 // Only Admin can get all customer
 const getAllCustomer = async (req, res) => {
-    console.log("hi");
     const token = req.headers?.authorization?.split(" ")[1];
     let decodeToken;
     if(token) {
@@ -187,34 +186,16 @@ const getAllCustomer = async (req, res) => {
 // only admin can get customer by id
 const getCustomerById = async (req, res) => {
     const id = req.params.id;
-    const token = req.headers?.authorization?.split(" ")[1];
-    let decodeToken;
-
-    if(token) {
-        decodeToken = jwt.verify(token, process.env.SECRETKEY);
-
-        try {
-            const foundAdmin = await AdminModel.findOne({email: decodeToken.email});
-            if(foundAdmin) {
-                const response = await CustomerModel.findById(id);
-                return res.status(200).json({
-                    message: `Fetched Customer ${response.name} Successfully`,
-                    data: response
-                })
-            } else{
-                return res.status(401).json({
-                    message: "Admin Doesn't Exist"
-                })
-            }
-        } catch(error) {
-            return res.status(500).json({
-                message: "There was an error",
-                error
-            })
-        }
-    } else {
+    try{
+        const response = await CustomerModel.findById(id);
+        return res.status(200).json({
+            message: "Fetch Customer By Id Successfully",
+            data: response
+        })
+    } catch(error) {
         return res.status(500).json({
-            message: "You need to provide access token"
+            message: "There was an error",
+            error
         })
     }
 }
@@ -273,7 +254,7 @@ const addToCart = async (req, res) => {
         const response = await CustomerModel.findById(id);
         response.cart.push(incomingData);
         await response.save();
-        
+
         return res.status(200).json({
             messgae: "Add To Cart Successfully",
             data: response
@@ -286,6 +267,42 @@ const addToCart = async (req, res) => {
     
     }
 }
+
+// Delete customer item in their cart
+const customerDeleteItemInCart = async (req, res) => {
+    const id = req.params.id;
+    const incomingData = req.body;
+    let deletedItem;
+
+    try{
+        const response = await CustomerModel.findById(id);
+        const customerCart = response.cart;
+
+        for(let item of customerCart) {
+            // Only put 2 equal signs here because it gonna cause error because of ObjectId type in js if I use 3 equal signs
+            if(item._id == incomingData.clothesId) {
+                deletedItem = item;
+                customerCart.splice(customerCart.indexOf(item), 1);
+                console.log(customerCart);
+            }
+        } 
+        const newCart = {
+            cart: customerCart
+        };
+        const updateCart = await CustomerModel.findByIdAndUpdate(id, newCart, {returnOriginal: false})
+        return res.status(200).json({
+            message: "Delete Item in Cart Successully",
+            data: deletedItem
+        })
+    } catch(error) {
+        return res.status(500).json({
+            message: "There was an error",
+            error
+        })
+    }
+}
+
+
 module.exports = {
     customerSignUp, 
     customerLogin, 
@@ -295,5 +312,6 @@ module.exports = {
     getCustomerById,
     loadDashBoard,
     showIndividualProduct,
-    addToCart
+    addToCart,
+    customerDeleteItemInCart
 }

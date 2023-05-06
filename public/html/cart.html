@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/cart.css">
     <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/cart.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Libre+Baskerville&family=Merriweather+Sans:wght@400;500&family=Montserrat:wght@500&family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -33,7 +34,7 @@
                 <li onclick="logout()">Log out</li>
 
             </ul>
-            <a href="#" class="icon" onclick="myFunction()">
+            <a href="#" class="icon">
                 <i class="fa fa-bars"></i>
               </a>
         </nav>
@@ -55,87 +56,14 @@
 
         <div class="outer-container">
             <div class="show-cart">
-                <table class="show-cart-table">
+                <table class="show-cart-table" id="show-cart-table">
                     <tr class="table-head">
                         <th>PRODUCT</th>
                         <th>QUANTITY</th>
                         <th>PRICE</th>
                     </tr>
 
-                    <tr>
-                        <td class="product-section">
-                            <div class="image" style="background-image: url('/img/relatedTshirt.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover"></div>
-                            <div class="product-info">
-                                <h3>Product name goes here</h3>
-                                <p>Size: L, Color: white</p>
-                            </div>
-                        </td>
-
-                        <td>
-                            <div class="quantity">1</div>
-                        </td>
-
-                        <td class="price-container">
-                            <h3>200,000 VND</h3>
-                            <p>200,000 VND each</p>
-                        </td>
-
-                        <td>
-                            <button class="remove-button">REMOVE</button>
-                        </td>
-                        
-
-                    </tr>
-
-
-                    <tr>
-                        <td class="product-section">
-                            <div class="image" style="background-image: url('/img/relatedTshirt.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover"></div>
-                            <div class="product-info">
-                                <h3>Product name goes here</h3>
-                                <p>Size: L, Color: white</p>
-                            </div>
-                        </td>
-
-                        <td>
-                            <div class="quantity">1</div>
-                        </td>
-
-                        <td class="price-container">
-                            <h3>200,000 VND</h3>
-                            <p>200,000 VND each</p>
-                        </td>
-
-                        <td>
-                            <button class="remove-button">REMOVE</button>
-                        </td>
-                    </tr>
-
-
-                    <tr>
-                        <td class="product-section">
-                            <div class="image" style="background-image: url('/img/relatedTshirt.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover"></div>
-                            <div class="product-info">
-                                <h3>Product name goes here</h3>
-                                <p>Size: L, Color: white</p>
-                            </div>
-                        </td>
-
-                        <td>
-                            <div class="quantity">1</div>
-                        </td>
-
-                        <td class="price-container"> 
-                            <h3>200,000 VND</h3>
-                            <p>200,000 VND each</p>
-                        </td>
-
-                        <td>
-                            <button class="remove-button">REMOVE</button>
-                        </td>
-                    </tr>
-
-
+                   
 
                 </table>
             </div>  
@@ -144,19 +72,15 @@
                 <div class="coupon-section">
                     <h2>HAVE ANY COUPON?</h2>
                     <div class="input-container">
-                        <input type="text" placeholder="Coupon code...">
-                        <button class="coupon-button">Apply</button>
+                        <input id="coupon-value" type="text" placeholder="Coupon code...">
+                        <button onclick="applyCoupon()" class="coupon-button">Apply</button>
+                        <div id="coupon-notification"></div>
                     </div>
                 </div>
 
                 <div class="show-price-container">
-                    <div class="payment">
-                        <h3>Total Price</h3>
-                        <p>900,000 VND</p>
-                        <h3>Discount</h3>
-                        <p>0 VND</p>
-                        <h3>Total</h3>
-                        <p>900,000 VND</p>
+                    <div class="payment" id="show-price">
+
                     </div>
 
                     <div class="button-container">

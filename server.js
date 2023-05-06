@@ -8,8 +8,9 @@ require('dotenv').config();
 const PORT = 2000;
 
 const CustomerRoute = require('./routes/customers');
-const AdminRoute = require('./routes/admins')
-const ClothesRoute = require('./routes/clothes')
+const AdminRoute = require('./routes/admins');
+const ClothesRoute = require('./routes/clothes');
+const CouponRoute = require('./routes/coupon');
 
 
 
@@ -34,19 +35,7 @@ app.use('/api/v1/customers', CustomerRoute);
 
 app.use('/api/v1/clothes', ClothesRoute);
 
-
-
-// app.get('/home', (req, res) => {
-//     res.sendFile(__dirname + '/public/homePage.html');
-// })
-
-// app.get('/home/cart', (req, res) => {
-//     res.sendFile(__dirname + '/public/cart/cart.html')
-// })
-
-// app.get('/home/shop', (req, res) => {
-//     res.sendFile(__dirname + '/public/shop/shop.html')
-// })
+app.use('/api/v1/coupon', CouponRoute);
 
 
 app.listen(PORT, () => {
