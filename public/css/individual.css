@@ -198,10 +198,19 @@ input[value="pink"] {
 input[value="bisque"] {
     background-color: bisque;
 }
+
+input[value="brown"] {
+    background-color: brown;
+}
+
+input[value="green"]{
+    background-color: green;
+}
   
 input[name="color"]:checked {
     border: 2px solid rgb(240, 77, 77);
 }
+
 
 .product-related-container{
     width: 100%;

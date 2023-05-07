@@ -59,6 +59,14 @@ function subtractQuantity() {
 
 }
 
+const getUserInfo = () => {
+    const userInfo = JSON.parse(localStorage.getItem('current-user'));
+    if(!userInfo) {
+      alert("You need to log in to get access");
+      window.location.href = `${baseUrl}/customers/signup`
+    }
+  }
+
 // Fetch API
 // Take the id from req.params
 const baseUrl = 'http://localhost:2000/api/v1';
@@ -233,6 +241,16 @@ const addToCart = async () => {
             window.location.href = `${baseUrl}/customers/cart`
         }, 2000 )
     }
+}
+
+// Home Nav
+const homeNav = () => {
+    window.location.href = `${baseUrl}/customers/dashboard`;
+}
+
+// Shop Nav
+const shopNav = () => {
+    window.location.href = `${baseUrl}/customers/allClothes`;
 }
 
 fetchIndividualClothes()

@@ -27,6 +27,11 @@ router.get('/cart', (req, res) => {
     res.sendFile(filePath);
 })
 
+router.get('/allClothes', (req, res) => {
+    const filePath = path.join(__dirname, '..','public', 'html', 'shop.html');
+    res.sendFile(filePath);
+})
+
 router.put('/cart/deleteItem/:id', CustomerController.customerDeleteItemInCart)
 
 // Customer Sign Up

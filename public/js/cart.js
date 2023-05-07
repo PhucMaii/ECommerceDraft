@@ -5,6 +5,13 @@ const logout = () => {
     window.location.href = `${baseUrl}/customers/signup`
   }
   
+  const getUserInfo = () => {
+    const userInfo = JSON.parse(localStorage.getItem('current-user'));
+    if(!userInfo) {
+      alert("You need to log in to get access");
+      window.location.href = `${baseUrl}/customers/signup`
+    }
+  }
 
 // FETCH API
 const baseUrl = "http://localhost:2000/api/v1";
@@ -137,8 +144,21 @@ const applyCoupon = async () => {
     const displayTotal = document.querySelector('#totalPrice');
     displayTotal.innerHTML = `${totalPrice - discount}`;
 
-
-    
 }
+
+// Continue shopping feature
+const continueShopping = () => {
+    window.location.href = `${baseUrl}/customers/dashboard`;
+}
+
+// Home Nav
+const homeNav = () => {
+    window.location.href = `${baseUrl}/customers/dashboard`;
+}
+
+// Shop Nav
+const shopNav = () => {
+    window.location.href = `${baseUrl}/customers/allClothes`;
+  }
 
 fetchCartClothes();

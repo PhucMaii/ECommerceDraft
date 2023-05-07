@@ -214,10 +214,8 @@ align-items: center;
 }
 
 .image-background{
-    /* background-image: url('/img/tshirt1.jpg'); */
     background-repeat: no-repeat;
     background-size: cover;
-    
 
 }
 

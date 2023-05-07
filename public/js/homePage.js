@@ -89,6 +89,15 @@ const fetchIndividualClothes = async (event) => {
   window.location.href = `${baseUrl}/customers/individualProduct/${clothesData.data._id}`
 }
 
+// Home Nav
+const homeNav = () => {
+  window.location.href = `${baseUrl}/customers/dashboard`;
+}
+
+// Shop Nav
+const shopNav = () => {
+  window.location.href = `${baseUrl}/customers/allClothes`;
+}
 
 fetchClothes();
 getUserInfo();

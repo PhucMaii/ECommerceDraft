@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const mongoosePaginate = require('mongoose-paginate-v2');
 const ClothesSchema = new mongoose.Schema({
     admin: {
         type: mongoose.Schema.Types.ObjectId,
@@ -50,6 +50,6 @@ const ClothesSchema = new mongoose.Schema({
 }, {
     timestamps: true
 })
-
+ClothesSchema.plugin(mongoosePaginate)
 const ClothesModel = mongoose.model("Clothes", ClothesSchema);
 module.exports = ClothesModel;

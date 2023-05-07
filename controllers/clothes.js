@@ -107,11 +107,19 @@ const deleteClothes = async (req, res) => {
 
 const getAllClothes = async (req, res) => {
     try{  
-        const response = await ClothesModel.find();
-        return res.status(200).json({
-            message: "Fethed All Clothes Succesfully",
-            data: response
-        })
+        if(req.query.page && req.query.limit) {
+            const response = await ClothesModel.paginate({}, {page: req.query.page, limit: req.query.limit});
+            return res.status(200).json({
+                message: "Fethed All Clothes Succesfully",
+                data: response
+            })
+        } else {
+            const response = await ClothesModel.find();
+            return res.status(200).json({
+                message: "Fethed All Clothes Succesfully",
+                data: response
+            })
+        }
 
     } catch(error) {
         return res.status(500).json({

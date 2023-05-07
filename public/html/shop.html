@@ -6,6 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/shop.css">
+    <script src="/js/shop.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter:wght@400;700&family=Lato&family=Libre+Baskerville&family=Poppins&family=Roboto&display=swap" rel="stylesheet">
 
 </head>
@@ -15,9 +16,9 @@
 
         <nav>
             <ul class="nav-list" id="topNav">
-                <li>Home</li>
+                <li onclick="homeNav()">Home</li>
                 <li id="dropDown-menu">
-                    Shop
+                    <a onclick="shopNav()">Shop</a>
                     <ul class="product-type-container" id="product-type-container">
                         <li class="product-type">Shirts</li>
                         <li class="product-type">Pants</li>
@@ -44,7 +45,7 @@
     </div>
 
     <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
-        <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+        <div class="whiteline margin-top" style="height: 1px; margin-bottom: 30px;">
         </div>
     </div>
 
@@ -65,103 +66,20 @@
             </select>
         </div>
 
-        <div class="allProduct-container">
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type description">
-                    T-Shirt
-                </div>
-                <div class="clothes-price description">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type description">
-                    T-Shirt
-                </div>
-                <div class="clothes-price description">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type description">
-                    T-Shirt
-                </div>
-                <div class="clothes-price description">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type description">
-                    T-Shirt
-                </div>
-                <div class="clothes-price description">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type description">
-                    T-Shirt
-                </div>
-                <div class="clothes-price description">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type description">
-                    T-Shirt
-                </div>
-                <div class="clothes-price description">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type description">
-                    T-Shirt
-                </div>
-                <div class="clothes-price description">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type description">
-                    T-Shirt
-                </div>
-                <div class="clothes-price description">
-                    200,000 VND
-                </div>
-            </div>
-
-            <div class="clothes-card" >
-                <div class="image-background"></div>
-                <div class="clothes-type description">
-                    T-Shirt
-                </div>
-                <div class="clothes-price description">
-                    200,000 VND
-                </div>
-            </div>
+        <div class="allProduct-container" id="clothes-card-container">
 
             
         </div>
+
+    </div>
+    <div class="page-controller">
+        <button class="page-button" id="page1">1</button>
+        <button class="page-button" id="page2">2</button>
+        <button class="page-button" id="page3">3</button>
     </div>
 
     <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
-        <div class="whiteline" style="height: 1px; margin-bottom: 30px;">
+        <div class="whiteline margin-top" style="height: 1px; margin-bottom: 30px;">
         </div>
     </div>
     <footer class="left">
