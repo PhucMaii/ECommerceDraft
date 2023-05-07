@@ -22,7 +22,7 @@ const fetchAllClothes = async (page) => {
     })
     const clothesData = await response.json();
     const data = clothesData.data;
-
+    console.log(data);
     return data;
 
 
@@ -92,6 +92,8 @@ const pagination = async () => {
 pagination();
 
 
+
+// home nav
 const homeNav = () => {
     window.location.href = `${baseUrl}/customers/dashboard`;
 }

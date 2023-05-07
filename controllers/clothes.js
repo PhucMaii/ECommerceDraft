@@ -2,6 +2,7 @@ const ClothesModel = require('../models/clothes');
 const AdminModel = require('../models/admins');
 
 const jwt = require('jsonwebtoken');
+const paginate = require('paginate');
 
 const createClothes = async (req, res) => {
     const incomingData = req.body;
@@ -106,12 +107,46 @@ const deleteClothes = async (req, res) => {
 }
 
 const getAllClothes = async (req, res) => {
+    const {page, limit, sorted} = req.query;
     try{  
-        if(req.query.page && req.query.limit) {
-            const response = await ClothesModel.paginate({}, {page: req.query.page, limit: req.query.limit});
+        const sortOptions = {};
+
+        // Handle sorting by price ascending
+        if(sorted === "Price: Lowest") {
+            sortOptions.price = 1;
+        }
+
+        // Handle sorting by price descending
+        if(sorted === "Price: Highest") {
+            sortOptions.price = -1;
+        }
+
+        // Handle sorting by Name ascending
+        if(sorted === "Name: A-Z") {
+            sortOptions.name = 1;
+        }
+
+        // Handle sorting by Name descending
+        if(sorted === "Name: Z-A") {
+            sortOptions.name = -1;
+        }
+        
+        // Handle sorting by time: Oldest
+        if(sorted === "Oldest") {
+            sortOptions.createdAt = 1;
+        }
+
+         // Handle sorting by time: Newest
+        if(sorted === "Newest") {
+            sortOptions.createdAt = -1;
+        }
+
+
+        if(page && limit && sorted) {
+            const paginateResponse = await ClothesModel.paginate({}, {page, limit, sort: sortOptions});
             return res.status(200).json({
-                message: "Fethed All Clothes Succesfully",
-                data: response
+                message: "Fetched All Clothes Successfully",
+                data: paginateResponse
             })
         } else {
             const response = await ClothesModel.find();
