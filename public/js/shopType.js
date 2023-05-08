@@ -1,3 +1,4 @@
+
 // FETCH API
 const baseUrl = 'http://localhost:2000/api/v1';
 
@@ -13,6 +14,9 @@ const getUserInfo = () => {
 let itemPerPage = 9;
 let currentPage = 1;
 
+// get type
+const url = window.location.href;
+const clothesType = url.substring(url.lastIndexOf('/') + 1);
 // Get sorted value from local storage
 let sorted = localStorage.getItem('sorted');
 
@@ -25,7 +29,7 @@ const sort = (event) => {
 
 const fetchAllClothes = async (page, sortOption) => {
     
-    const response = await fetch(`${baseUrl}/clothes?page=${page}&limit=${itemPerPage}&sorted=${sortOption}`, {
+    const response = await fetch(`${baseUrl}/clothes/type/${clothesType}?page=${page}&limit=${itemPerPage}&sorted=${sortOption}`, {
         method: "GET",
         headers: {
             'Content-type': 'application/json'  
@@ -33,7 +37,6 @@ const fetchAllClothes = async (page, sortOption) => {
     })
     const clothesData = await response.json();
     const data = clothesData.data;
-    console.log(data);
     return data;
 
 
@@ -100,6 +103,8 @@ const pagination = async () => {
 
 }
 pagination();
+
+
 
 // home nav
 const homeNav = () => {

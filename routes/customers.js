@@ -32,6 +32,42 @@ router.get('/allClothes', (req, res) => {
     res.sendFile(filePath);
 })
 
+// Shop type
+router.get('/shirt', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    res.sendFile(filePath);
+})
+
+router.get('/t-shirt', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    res.sendFile(filePath);
+})
+
+router.get('/pants', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    res.sendFile(filePath);
+})
+
+
+router.get('/sweater', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    res.sendFile(filePath);
+})
+
+router.get('/hoodie', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    res.sendFile(filePath);
+})
+
+router.get('/jacket', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    res.sendFile(filePath);
+})
+
+
+
+
+
 router.put('/cart/deleteItem/:id', CustomerController.customerDeleteItemInCart)
 
 // Customer Sign Up

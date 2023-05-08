@@ -94,16 +94,19 @@ const fetchIndividualClothes = async () => {
     imageContainer.innerHTML += `
     <div class="image"  style="background-image: url(${data.img}); background-size: cover; background-repeat: no-repeat; background-position: center;">
 
-    </div>
-
-    <div class="image"  style="background-image: url(${data.sideImg1}); background-size: cover; background-repeat: no-repeat; background-position: center;">
-
-    </div>
-
-    <div class="image"  style="background-image: url(${data.sideImg2}); background-size: cover; background-repeat: no-repeat; background-position: center;">
-
-    </div>
-    `
+    </div>`
+    if(data.sideImg1) {
+        imageContainer.innerHTML += `
+        <div class="image"  style="background-image: url(${data.sideImg1}); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    
+        </div>`
+    }
+    if(data.sideImg2) {
+        imageContainer.innerHTML += `
+        <div class="image"  style="background-image: url(${data.sideImg2}); background-size: cover; background-repeat: no-repeat; background-position: center;">
+    
+        </div>`
+    }
     image = document.querySelectorAll('.image');
     imgCounts = imageContainer.childElementCount;
 
@@ -251,6 +254,11 @@ const homeNav = () => {
 // Shop Nav
 const shopNav = () => {
     window.location.href = `${baseUrl}/customers/allClothes`;
+}
+  
+// Shop specific clothes type nav
+const shopSpecificType = (type) => {
+    window.location.href = `${baseUrl}/customers/${type}`;
 }
 
 fetchIndividualClothes()

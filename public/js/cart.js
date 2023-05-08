@@ -159,6 +159,11 @@ const homeNav = () => {
 // Shop Nav
 const shopNav = () => {
     window.location.href = `${baseUrl}/customers/allClothes`;
-  }
+}
+  
+// Shop specific clothes type nav
+const shopSpecificType = (type) => {
+    window.location.href = `${baseUrl}/customers/${type}`;
+}
 
 fetchCartClothes();

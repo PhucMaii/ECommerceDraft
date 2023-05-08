@@ -17,13 +17,14 @@
             <ul class="nav-list" id="topNav">
                 <li onclick="homeNav()">Home</li>
                 <li id="dropDown-menu">
-                    Shop
+                    <a onclick="shopNav()">Shop</a>
                     <ul class="product-type-container" id="product-type-container">
-                        <li class="product-type">Shirts</li>
-                        <li class="product-type">Pants</li>
-                        <li class="product-type">Sweaters</li>
-                        <li class="product-type">Hoodies</li>
-                        <li class="product-type">Jacket</li>
+                        <li onclick="shopSpecificType('t-shirt')" class="product-type">T-Shirts</li>
+                        <li onclick="shopSpecificType('shirt')" class="product-type">Shirts</li>
+                        <li onclick="shopSpecificType('pants')" class="product-type">Pants</li>
+                        <li onclick="shopSpecificType('sweater')" class="product-type">Sweaters</li>
+                        <li onclick="shopSpecificType('hoodie')" class="product-type">Hoodies</li>
+                        <li onclick="shopSpecificType('jacket')" class="product-type">Jacket</li>
                     </ul>
                 </li>
 
