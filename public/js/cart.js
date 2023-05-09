@@ -37,46 +37,54 @@ const fetchCartClothes = async () => {
     const showCartTable = document.querySelector('#show-cart-table');
 
     // Loop through cart to fetch each item and send UI for each of them
-    for(let item of cart) {
-        const clothesResponse = await fetch(`${baseUrl}/clothes/${item.clothesId}`, {
-            method: "GET",
-            headers: {
-                'Content-type': 'application/json'
-            }
-        })
-        const clothesData = await clothesResponse.json();
-        const data = clothesData.data;
-        
-        // Get price of each clothes
-        let price = data.price * item.quantity;
-        totalPrice += price;
-
-        showCartTable.innerHTML += `   <tr>
-        <td class="product-section">
-            <div class="image" style="background-image: url(${data.img}); background-position: center; background-repeat: no-repeat; background-size: cover"></div>
-            <div class="product-info">
-                <h3>${data.name}</h3>
-                <p>Size: ${item.size}, Color: ${item.color}</p>
-            </div>
-        </td>
-
-        <td>
-            <div class="quantity">${item.quantity}</div>
-        </td>
-
-        <td class="price-container">
-            <h3>${price} VND</h3>
-            <p>${data.price} VND each</p>
-        </td>
-
-        <td>
-            <button id=${item._id} class="remove-button" onclick="deleteItemInCart(event)">REMOVE</button>
-        </td>
-        
-
-    </tr>`
-    }
+    if(cart.length === 0) {
+        showCartTable.innerHTML += "<h2 class='alert-error alert-empty-cart'>Your Cart Is Empty Now. Let's Grab Some Items</h2>";
+        setTimeout(() => {
+            window.location.href = `${baseUrl}/customers/allClothes`;
+        }, 3000)
+    } else {
+        for(let item of cart) {
+            const clothesResponse = await fetch(`${baseUrl}/clothes/${item.clothesId}`, {
+                method: "GET",
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            })
+            const clothesData = await clothesResponse.json();
+            const data = clothesData.data;
+            
+            // Get price of each clothes
+            let price = data.price * item.quantity;
+            totalPrice += price;
     
+            showCartTable.innerHTML += `   <tr>
+            <td class="product-section">
+                <div class="image" style="background-image: url(${data.img}); background-position: center; background-repeat: no-repeat; background-size: cover"></div>
+                <div class="product-info">
+                    <h3>${data.name}</h3>
+                    <p>Size: ${item.size}, Color: ${item.color}</p>
+                </div>
+            </td>
+    
+            <td>
+                <div class="quantity">${item.quantity}</div>
+            </td>
+    
+            <td class="price-container">
+                <h3>${price} VND</h3>
+                <p>${data.price} VND each</p>
+            </td>
+    
+            <td>
+                <button id=${item._id} class="remove-button" onclick="deleteItemInCart(event)">REMOVE</button>
+            </td>
+            
+    
+        </tr>`
+        }
+    
+    }
+
     // Show price in UI
     const showPrice = document.querySelector('#show-price');
     showPrice.innerHTML += `<h3>Total Price</h3>
