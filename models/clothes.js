@@ -45,6 +45,9 @@ const ClothesSchema = new mongoose.Schema({
     },
     sideImg2: {
         type: String
+    },
+    sales: {
+        type: Number
     }
 
 }, {

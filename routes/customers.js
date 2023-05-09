@@ -2,7 +2,19 @@ const express = require('express');
 const path = require('path');
 const router = express.Router();
 const CustomerController = require('../controllers/customers')
+const EventEmitter = require('events');
+const emitter = new EventEmitter();
 
+// Increase the limit of event listeners to 20
+emitter.setMaxListeners(20);
+
+// Add event listeners
+for (let i = 0; i < 15; i++) {
+  emitter.on('event', () => console.log(`Listener ${i + 1}`));
+}
+
+// Trigger the event
+emitter.emit('event');
 
 router.use(express.static(path.join(__dirname, "../public")));
 // API for customers
@@ -27,8 +39,15 @@ router.get('/cart', (req, res) => {
     res.sendFile(filePath);
 })
 
+// Show All Clothes
 router.get('/allClothes', (req, res) => {
     const filePath = path.join(__dirname, '..','public', 'html', 'shop.html');
+    res.sendFile(filePath);
+})
+
+// Show clothes from search bar
+router.get('/search', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'search.html');
     res.sendFile(filePath);
 })
 

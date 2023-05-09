@@ -184,6 +184,11 @@ const orderClothes = async (req, res) => {
     const id = req.params.id;
     try{    
         const response = await ClothesModel.findById(id);
+        if(!response.sales) {
+            response.sales = 1;
+        } else {
+            response.sales++;
+        }
         response.quantity--;
         await response.save();
         return res.status(200).json({

@@ -120,3 +120,8 @@ const shopNav = () => {
 const shopSpecificType = (type) => {
     window.location.href = `${baseUrl}/customers/${type}`;
 }
+
+// Cart Nav
+const cartNav = () => {
+    window.location.href = `${baseUrl}/customers/cart`;
+  }

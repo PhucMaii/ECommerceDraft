@@ -114,6 +114,7 @@ const fetchIndividualClothes = async () => {
     const price = document.querySelector('#price');
     price.innerHTML += `${data.price} VND`;
 
+    // Size Options
     const sizeContainer = document.querySelector('#size-container')
     for (let i = 0; i < data.size.length; i++) {
         sizeContainer.innerHTML += ` <div class="size-child-container">
@@ -123,6 +124,7 @@ const fetchIndividualClothes = async () => {
       </div>`
     }
 
+    // Color Options
     const colorContainer = document.querySelector('#color-container');
     for (let i = 0; i < data.color.length; i++) {
         colorContainer.innerHTML += `<div class="color-child-container">
@@ -130,6 +132,7 @@ const fetchIndividualClothes = async () => {
       </div>`
     }
 
+    // Display Diescription
     const descriptionContainer = document.querySelector('#description-container');
     descriptionContainer.innerHTML += `
         <li>Type: ${data.description.type}</li>
@@ -261,5 +264,9 @@ const shopSpecificType = (type) => {
     window.location.href = `${baseUrl}/customers/${type}`;
 }
 
+// Cart Nav
+const cartNav = () => {
+    window.location.href = `${baseUrl}/customers/cart`;
+  }
 fetchIndividualClothes()
 fetchProductRelated()
