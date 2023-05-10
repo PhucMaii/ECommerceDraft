@@ -58,3 +58,37 @@
 .page-button{
     margin: 5px;
 }
+
+.whiteline{
+    margin-bottom: 30px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .title2{
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+    .margin-top{
+        margin: 20px 0;
+    }
+    .whiteline{
+        margin-bottom: 10px;
+    }
+    .sorting-button{
+        width: 100%;
+        grid-column: 1/3;
+        font-size: 10px;
+        height: 10px;
+    }
+    .allProduct-container{
+        margin-left: 0;
+        grid-column: 3/5;
+        width: 100%;
+    }
+    .clothes-card{
+        width: 80;
+        height: 150;
+    }
+
+}

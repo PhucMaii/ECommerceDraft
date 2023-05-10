@@ -454,6 +454,9 @@ footer{
     }
     .nav-list.responsive li{
         display: block;
-
+    }
+    .logo{
+        width: 75px;
+        height: 75px;
     }
 }
