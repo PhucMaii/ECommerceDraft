@@ -1,4 +1,15 @@
+function myFunction() {
+    const mainContainer = document.getElementById("main-container");
+    var x = document.getElementById("topNav");
+    if (x.className === "nav-list") {
+        x.className += " responsive";
+        mainContainer.style.transform = 'translateY(150px)';
+    } else {
+        x.className = "nav-list";
+        mainContainer.style.transform = 'translateY(0)';
 
+    }
+  }
 let image = document.querySelectorAll('.image');
 const imageContainer = document.querySelector('#image-slider');
 // Count how many images in total in image slider

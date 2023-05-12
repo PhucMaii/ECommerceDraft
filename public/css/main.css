@@ -440,23 +440,30 @@ footer{
 
 @media only screen and (max-width: 600px) {
     .nav-list.responsive{
-        display: block;
         position: absolute;
-        left: -50;
-        top: 80;
+        left: -50px;
+        top: 80px;
         width: 90%;
         border-radius: 0;
-        
+
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+
     }
     .nav-list.responsive li{
         display: block;
+
     }
     .logo{
         width: 75px;
         height: 75px;
+    }
+    .clothes-type{
+        font-size: 12px;
+    }
+    .clothes-price{
+        font-size: 10px;
     }
 }

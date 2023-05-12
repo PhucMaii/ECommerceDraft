@@ -90,5 +90,8 @@
         width: 80;
         height: 150;
     }
+    .description{
+        font-size: 10px;
+    }
 
 }
