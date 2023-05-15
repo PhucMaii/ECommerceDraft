@@ -162,6 +162,14 @@ const applyCoupon = async () => {
 
 }
 
+// Search Bar Function
+const searchBar = () => {
+    const searchBarValue = document.querySelector('#searchBar').value;
+    localStorage.setItem('search', searchBarValue);
+    window.location.href = `${baseUrl}/customers/search`;
+  
+  }  
+
 // Continue shopping feature
 const continueShopping = () => {
     window.location.href = `${baseUrl}/customers/dashboard`;

@@ -1,20 +1,5 @@
-const changePageBtnSignup = document.querySelector('#changePageBtnSignup');
-const changePageBtnLogin = document.querySelector('#changePageBtnLogin');
-const signupPage = document.querySelector('#signupPage');
-const loginPage = document.querySelector('#loginPage');
 
-function toLoginPage(){
-    signupPage.classList.add('up');
-    loginPage.classList.add('up')
-}
-
-
-function toSignUpPage() {
-    signupPage.classList.remove('up');
-    loginPage.classList.remove('up');
-
-}
-
+localStorage.clear();
 // Fetch API
 const baseUrl = 'http://localhost:2000/api/v1';
 let token;
@@ -28,15 +13,15 @@ const signUpFormSubmit = async (event) => {
     const confirmPasswordNotification = document.querySelector('#confirmPassword-notification');
     const emailNotification = document.querySelector('#email-notification')
 
-    const newCustomer = {
+    const newAdmin = {
         name: name.value,
         email: email.value,
         password: password.value 
     }
 
-    const response = await fetch(`${baseUrl}/customers/signup`, {
+    const response = await fetch(`${baseUrl}/admins`, {
         method: "POST",
-        body: JSON.stringify(newCustomer),
+        body: JSON.stringify(newAdmin),
         headers: {
             'Content-type': 'application/json',
         }
@@ -76,27 +61,27 @@ const loginFormSubmit =  async (event) => {
 
     const notification = document.querySelector('#notification')
 
-    const userData = {
+    const adminData = {
         email: email.value,
         password: password.value 
     }
 
-    const response = await fetch(`${baseUrl}/customers/login`, {
+    const response = await fetch(`${baseUrl}/admins/login`, {
         method: "POST",
-        body: JSON.stringify(userData),
+        body: JSON.stringify(adminData),
         headers: {
             'Content-type': 'application/json',
         }
     })
     const res = await response.json();
     notification.innerHTML = "";
-    // Check to see if the response give me the token of the user
+    // Check to see if the response give me the token of the admin
     if(res.token) {
         notification.innerHTML +=  `<div class="alert-successfully">${res.message}</div>`
         localStorage.setItem('access-token', res.token),
         localStorage.setItem('current-user', JSON.stringify(res.data));
         setTimeout(() => {
-            window.location.href = `${baseUrl}/customers/dashboard`
+            window.location.href = `${baseUrl}/admins/dashboard`
         }, 3000)
 
     } else {

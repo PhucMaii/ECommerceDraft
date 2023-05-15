@@ -260,6 +260,15 @@ const addToCart = async () => {
     }
 }
 
+// Search Bar Function
+const searchBar = () => {
+    const searchBarValue = document.querySelector('#searchBar').value;
+    localStorage.setItem('search', searchBarValue);
+    window.location.href = `${baseUrl}/customers/search`;
+  
+  }
+  
+
 // Home Nav
 const homeNav = () => {
     window.location.href = `${baseUrl}/customers/dashboard`;

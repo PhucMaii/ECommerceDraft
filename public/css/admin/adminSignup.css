@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Libre Baskerville';
+    background-color: rgb(51, 51, 51);
+}
+
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    margin-top: 10%;
+}
+
+.nav{
+    margin-bottom: 30px;
+}
+
+form{
+    background-color: rgb(90, 89, 89);
+    padding: 50px;
+    border-radius: 20px;
+
+    width: 500px;
+}
+
+form h2{
+    text-align: center;
+    color: rgba(116, 208, 248, 0.951);
+}
+
+.form-group{
+    margin-top: 20px;
+    font-weight: bolder;
+    color: rgb(170, 229, 255);
+}
+
+
+
+.btn{
+   margin-top: 20px;
+   width: 100%;
+
+}
+.alert-successfully{
+    text-align: center;
+    margin-top: 10px;
+    color: rgba(65, 169, 65, 0.787);
+}
+.alert-error{
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(247, 128, 128);
+    font-weight: lighter;
+     /* color:rgb(247, 232, 232); */
+}

@@ -1,0 +1,142 @@
+body{
+    background-color: rgb(219, 219, 219);
+    overflow-x: hidden;
+}
+nav{
+    gap: 30%;
+}
+
+.navbar-brand{
+    width: 75;
+    height: 75;
+}
+.navbar-nav{
+    gap: 20px;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+form .form-control{
+    width: 50%;
+
+}
+
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+.main-container{
+    display: grid;
+    place-items: center;
+    grid-template-rows: 28% 72%;
+}
+
+h2.title{
+    text-align: center;
+    margin-right: 20px;
+}
+
+.info-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+}
+
+.info-block{
+    background: rgb(239, 239, 239);
+    width: 300px;
+    height: 200px;
+    margin: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 20px;
+    flex-direction: column;
+}
+.statistic-container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 70% 1% 29%;
+
+
+}
+.linechart-container{
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    border: none;
+}
+
+.recent-order{
+    width: 100%;
+    background: rgb(239, 239, 239);;
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    grid-row: 2/3;
+    border: none;
+}
+
+.list-of-best-seller-items {
+    width: 100%;
+    height: 100%;
+    grid-column: 3/4;
+    grid-row: 1/3;
+    background:  rgb(239, 239, 239);
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+}
+
+.title-block {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+}
+
+.title-block select{
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.increase-row-height-1 td,
+.increase-row-height-1 th {
+  height: 100px; /* Set the desired height for each table cell */
+  width: 50px;
+  text-align: center;
+  vertical-align: middle; /* Optional: Center the content vertically */
+}
+.alert-successfully{
+    margin-top: 10px;
+    color: rgba(65, 169, 65, 0.792);
+}
+.alert-error{
+    margin-top: 10px;
+    color: rgb(176, 21, 21);
+    /* color:rgb(247, 232, 232); */
+}
+
+.increase-row-height-2 td, .increase-row-height-2 th{
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+}

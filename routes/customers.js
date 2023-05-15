@@ -20,13 +20,13 @@ router.use(express.static(path.join(__dirname, "../public")));
 // API for customers
 // HomePage
 router.get('/dashboard', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'html', 'homePage.html');
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'customer', 'homePage.html');
     res.sendFile(filePath);
 });
 
 // Get signup and login Page
 router.get('/signup', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'html', 'signup.html');
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'customer','signup.html');
     res.sendFile(filePath);
 })
 
@@ -35,55 +35,53 @@ router.get('/individualProduct/:id', CustomerController.showIndividualProduct);
 
 // Show Cart Page
 router.get('/cart', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'html', 'cart.html');
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'customer','cart.html');
     res.sendFile(filePath);
 })
 
 // Show All Clothes
 router.get('/allClothes', (req, res) => {
-    const filePath = path.join(__dirname, '..','public', 'html', 'shop.html');
+    const filePath = path.join(__dirname, '..','public', 'html','customer', 'shop.html');
     res.sendFile(filePath);
 })
 
 // Show clothes from search bar
 router.get('/search', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'html', 'search.html');
+    const filePath = path.join(__dirname, '..', 'public', 'html','customer', 'search.html');
     res.sendFile(filePath);
 })
 
 // Shop type
 router.get('/shirt', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    const filePath = path.join(__dirname, '..', 'public', 'html','customer', 'shopType.html');
     res.sendFile(filePath);
 })
 
 router.get('/t-shirt', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    const filePath = path.join(__dirname, '..', 'public', 'html','customer', 'shopType.html');
     res.sendFile(filePath);
 })
 
 router.get('/pants', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'customer','shopType.html');
     res.sendFile(filePath);
 })
 
 
 router.get('/sweater', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    const filePath = path.join(__dirname, '..', 'public', 'html','customer', 'shopType.html');
     res.sendFile(filePath);
 })
 
 router.get('/hoodie', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'customer','shopType.html');
     res.sendFile(filePath);
 })
 
 router.get('/jacket', (req, res) => {
-    const filePath = path.join(__dirname, '..', 'public', 'html', 'shopType.html');
+    const filePath = path.join(__dirname, '..', 'public', 'html','customer', 'shopType.html');
     res.sendFile(filePath);
 })
-
-
 
 
 
@@ -109,5 +107,9 @@ router.get('/', CustomerController.getAllCustomer);
 
 // Add Clothes to Cart
 router.put('/addToCart/:id', CustomerController.addToCart)
+
+// Order Clothes
+router.put('/order/:id', CustomerController.orderClothes)
+
 
 module.exports = router;

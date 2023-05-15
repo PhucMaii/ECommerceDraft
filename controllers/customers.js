@@ -236,7 +236,7 @@ const showIndividualProduct = async (req, res) => {
     try {
         const response = await ClothesModel.findById(id);
         if (response) {
-            const filePath = path.join(__dirname, '..', 'public', 'html', 'individual.html');
+            const filePath = path.join(__dirname, '..', 'public', 'html', 'customer', 'individual.html');
             res.sendFile(filePath);
         } else {
             return res.send("Your Clothes Couldn't Found")
@@ -265,6 +265,26 @@ const addToCart = async (req, res) => {
             error
         })
     
+    }
+}
+
+const orderClothes = async (req, res) => {
+    const id = req.params.id;
+    const incomingData = req.body;
+    try{    
+        
+        const response = await CustomerModel.findById(id);
+        response.orders.push(...incomingData);
+        await response.save();        
+        return res.status(200).json({
+            message: "Order Placed Successfully",
+            data: response
+        })
+    } catch(error) {
+        return res.status(500).json({
+            message: "There was an error",
+            error
+        })
     }
 }
 
@@ -313,5 +333,6 @@ module.exports = {
     loadDashBoard,
     showIndividualProduct,
     addToCart,
+    orderClothes,
     customerDeleteItemInCart
 }

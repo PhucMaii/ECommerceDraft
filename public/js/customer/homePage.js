@@ -103,7 +103,7 @@ const fetchIndividualClothes = async (event) => {
 const searchBar = () => {
   const searchBarValue = document.querySelector('#searchBar').value;
   localStorage.setItem('search', searchBarValue);
-    window.location.href = `${baseUrl}/customers/search`;
+  window.location.href = `${baseUrl}/customers/search`;
 
 }
 

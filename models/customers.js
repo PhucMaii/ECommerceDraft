@@ -30,6 +30,23 @@ const CustomerSchema = new mongoose.Schema({
                 type: Number
             }
         }
+    ],
+    orders: [
+        {
+            clothesId: {
+                type:  mongoose.Schema.Types.ObjectId,
+                ref: "Clothes"
+            },
+            color: {
+                type: String
+            },
+            size: {
+                type: String
+            },
+            quantity: {
+                type: Number
+            }
+        }
     ]
 }, {
     timestamps: true

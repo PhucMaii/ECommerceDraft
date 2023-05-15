@@ -180,28 +180,7 @@ const getClothesById = async (req, res) => {
     }
 }
 
-const orderClothes = async (req, res) => {
-    const id = req.params.id;
-    try{    
-        const response = await ClothesModel.findById(id);
-        if(!response.sales) {
-            response.sales = 1;
-        } else {
-            response.sales++;
-        }
-        response.quantity--;
-        await response.save();
-        return res.status(200).json({
-            message: "Order Successfully",
-            data: response
-        })
-    } catch(error) {
-        return res.status(500).json({
-            message: "There was an error",
-            error
-        })
-    }
-}
+
 
 const getClothesByType = async (req, res) => {
     const type = req.params.type;
@@ -262,13 +241,36 @@ const getClothesByType = async (req, res) => {
     }
 }
 
+const orderClothes = async (req, res) => {
+    const id = req.params.id;
+    try{    
+        
+        const response = await ClothesModel.findById(id);
+        if(!response.sales) {
+            response.sales = 1;
+        } else {
+            response.sales++;
+        }
+        response.quantity--;
+        await response.save();
+        return res.status(200).json({
+            message: "Order Successfully",
+            data: response
+        })
+    } catch(error) {
+        return res.status(500).json({
+            message: "There was an error",
+            error
+        })
+    }
+}
 
 module.exports = {
     createClothes,
     updateClothes,
     deleteClothes,
-    orderClothes,
     getAllClothes,
     getClothesById,
-    getClothesByType
+    getClothesByType,
+    orderClothes
 }

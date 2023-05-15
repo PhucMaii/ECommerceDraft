@@ -111,6 +111,14 @@ const pagination = async () => {
 }
 pagination();
 
+// Search Bar Function
+const searchBar = () => {
+  const searchBarValue = document.querySelector('#searchBar').value;
+  localStorage.setItem('search', searchBarValue);
+  window.location.href = `${baseUrl}/customers/search`;
+
+}
+
 
 
 // home nav
