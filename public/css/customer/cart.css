@@ -107,12 +107,7 @@ tr{
     padding: 10 15;
 }
 
-.coupon-section{
-    background-color: #d3d3d3;
-    padding: 5 0 50 10;
-    border-radius: 10px;
-    font-weight: bolder;    
-}
+
 
 .input-container{
     display: grid;
@@ -127,19 +122,11 @@ tr{
     padding: 10;
 }
 
-.coupon-button{
-    border: none;
-    background: #1D58F0;
-    color: white;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
 
 .show-price-container{
     background-color: #d3d3d3;
     border-radius: 10px;
     padding: 15;
-    margin-top: 5%;
     padding-bottom: 20;
 }
 

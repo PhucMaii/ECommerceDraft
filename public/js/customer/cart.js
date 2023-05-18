@@ -99,11 +99,7 @@ const fetchCartClothes = async () => {
     // Show price in UI
     const showPrice = document.querySelector('#show-price');
     showPrice.innerHTML += `<h3>Total Price</h3>
-    <p>${totalPrice} VND</p>
-    <h3>Discount</h3>
-    <p id="discount">0 VND</p>
-    <h3>Total</h3>
-    <p id="totalPrice">${totalPrice} VND</p>`
+    <p>${totalPrice} VND</p>`
 }
 
 // Remove Button feature
@@ -122,48 +118,6 @@ const deleteItemInCart = async (event) => {
 
 }
 
-//Apply coupon feature
-const applyCoupon = async () => {
-    const couponResponse = await fetch(`${baseUrl}/coupon`, {
-        method: "GET",
-        headers: {
-            'Content-type': 'application/json'
-        }
-    })
-    const couponData = await couponResponse.json();
-    const cData = couponData.data;
-
-    // get input coupon from customer
-    const inputCoupon = document.querySelector('#coupon-value').value;
-
-    // get notification block
-    const notification = document.querySelector('#coupon-notification');
-    notification.innerHTML = "";
-
-    // count variable to count if coupon doesn't match any of the user input
-    let count = 0;
-
-    let amountOfDiscount = 0;
-    for(let coupon of cData) {
-        if(coupon.code === inputCoupon) {
-            notification.innerHTML += `<div class="alert-successfully">Coupon Applied</div>`;
-            amountOfDiscount = coupon.amountOfDiscount;
-        } else {
-            count += 1;
-        }
-    }
-    if(count == cData.length) {
-        notification.innerHTML += `<div class="alert-error">Coupon Doesn't Exist</div>`
-    }
-
-    const discount = amountOfDiscount < 1? totalPrice * amountOfDiscount : amountOfDiscount
-    // Add Discount 
-    const displayDiscount = document.querySelector('#discount');
-    displayDiscount.innerHTML = `${discount} VND`;
-    const displayTotal = document.querySelector('#totalPrice');
-    displayTotal.innerHTML = `${totalPrice - discount}`;
-
-}
 
 const fetchEditCart = async (operation, id) => {
     const incomingData = {
@@ -209,6 +163,11 @@ const searchBar = () => {
 // Continue shopping feature
 const continueShopping = () => {
     window.location.href = `${baseUrl}/customers/dashboard`;
+}
+
+// Make a purchase
+const moveToOrderPage = () => {
+    window.location.href = `${baseUrl}/customers/cart/purchaseMethod`;
 }
 
 // Home Nav

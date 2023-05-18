@@ -150,9 +150,42 @@ h1{
     margin: 30px;
 }
 
+#subtotal{
+    margin: 30px;
+}
+
 .item-card{
     display: grid;
     grid-template-columns: 20% 20% 20% 40%;
+}
+
+.coupon-input-container{
+    display: grid;
+    grid-template-columns: 80% 20%;
+    width: 90%;
+
+}
+
+.coupon-input-container input{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 10px;
+    border: 1px solid #909090;
+}
+
+.coupon-section{
+    font-weight: bolder;    
+
+}
+
+.coupon-button{
+    border: none;
+    background: #1D58F0;
+    color: white;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 
@@ -188,3 +221,16 @@ h1{
 #subtotal p {
     text-align: center;
 }
+
+.alert-successfully{
+    text-align: left;
+    margin-top: 10px;
+    color: rgb(65, 169, 65);
+  }
+  
+  .alert-error{
+    text-align: left;
+    margin-top: 10px;
+    color: rgba(223, 78, 78, 0.882);
+     /* color:rgb(247, 232, 232); */
+  }

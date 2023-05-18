@@ -83,7 +83,10 @@ router.get('/jacket', (req, res) => {
     res.sendFile(filePath);
 })
 
-
+router.get('/cart/purchaseMethod', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html','customer', 'order.html');
+    res.sendFile(filePath);
+})
 
 router.put('/cart/deleteItem/:id', CustomerController.customerDeleteItemInCart)
 
