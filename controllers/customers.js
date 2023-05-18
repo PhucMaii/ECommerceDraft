@@ -271,22 +271,37 @@ const addToCart = async (req, res) => {
 const orderClothes = async (req, res) => {
     const id = req.params.id;
     const incomingData = req.body;
-    try{    
-        
+
+    try {    
         const response = await CustomerModel.findById(id);
-        response.orders.push(...incomingData);
+
+        const newOrder = {
+            firstName: incomingData.firstName,
+            lastName: incomingData.lastName,
+            address: incomingData.address,
+            address2: incomingData.address2,
+            country: incomingData.country,
+            state: incomingData.state,
+            postalCode: incomingData.postalCode,
+            creditCardNumber: incomingData.creditCardNumber,
+            expiryDate: incomingData.expiryDate,
+            cvv: incomingData.cvv,
+            itemList: response.cart
+        };
+        response.orders.push(newOrder);
+        
         await response.save();        
         return res.status(200).json({
             message: "Order Placed Successfully",
             data: response
-        })
+        });
     } catch(error) {
         return res.status(500).json({
             message: "There was an error",
             error
-        })
+        });
     }
-}
+};
 
 const customerEditCart = async (req, res) => {
     const id = req.params.id;

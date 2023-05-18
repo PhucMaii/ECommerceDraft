@@ -1,56 +1,86 @@
 const mongoose = require('mongoose');
 
+const OrderSchema = new mongoose.Schema({
+  firstName: {
+    type: String
+  },
+  lastName: {
+    type: String
+  },
+  address: {
+    type: String
+  },
+  address2: {
+    type: String
+  },
+  country: {
+    type: String
+  },
+  state: {
+    type: String
+  },
+  postalCode: {
+    type: String
+  },
+  creditCardNumber: {
+    type: String
+  },
+  expiryDate: {
+    type: String
+  },
+  cvv: {
+    type: String
+  },
+  itemList: [{
+    clothesId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Clothes"
+    },
+    color: {
+      type: String
+    },
+    size: {
+      type: String
+    },
+    quantity: {
+      type: Number
+    }
+  }]
+});
+
 const CustomerSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  cart: [{
+    clothesId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Clothes"
     },
-    email: {
-        type: String,
-        required: true,
-        unique: true
+    color: {
+      type: String
     },
-    password: {
-        type: String,
-        required: true
+    size: {
+      type: String
     },
-    cart: [
-        {
-            clothesId: {
-                type:  mongoose.Schema.Types.ObjectId,
-                ref: "Clothes"
-            },
-            color: {
-                type: String
-            },
-            size: {
-                type: String
-            },
-            quantity: {
-                type: Number
-            }
-        }
-    ],
-    orders: [
-        {
-            clothesId: {
-                type:  mongoose.Schema.Types.ObjectId,
-                ref: "Clothes"
-            },
-            color: {
-                type: String
-            },
-            size: {
-                type: String
-            },
-            quantity: {
-                type: Number
-            }
-        }
-    ]
+    quantity: {
+      type: Number
+    }
+  }],
+  orders: [OrderSchema]
 }, {
-    timestamps: true
-})
+  timestamps: true
+});
 
 const CustomerModel = mongoose.model('Customer', CustomerSchema);
 module.exports = CustomerModel;
