@@ -165,54 +165,36 @@ const applyCoupon = async () => {
 
 }
 
+const fetchEditCart = async (operation, id) => {
+    const incomingData = {
+        operation: operation,
+        clothesId: id
+    }
+    const response = await fetch(`${baseUrl}/customers/cart/editItem/${currentUser._id}`, {
+        method: "PUT",
+        body: JSON.stringify(incomingData),
+        headers: {
+            'Content-type' : 'application/json'
+        }
+    })
+
+    const customerData =  await response.json();
+    const data = customerData.data;
+    return data
+}
 
 const addQuantity =  async (event) => {
     const id = event.target.classList[1];
-    const quantity = document.querySelector("#displayQuantity").textContent.slice(2,3);
-    let quantityNum = parseInt(quantity);
-    quantityNum--;
+    await fetchEditCart('add', id);
 
-    const response = await fetch(`${baseUrl}/customers/${currentUser._id}`, {
-        method: "GET",
-        headers: {
-            'Content-type' : 'application/json'
-        }
-    })
-
-    const customerData =  await response.json();
-    const data = customerData.data;
-    for(let item of data.cart) {
-        if(item.clothesId === id) {
-            item.quantity = item.quantity + 1;
-        }
-    }
     window.location.href = `${baseUrl}/customers/cart`;
 }
 
-const subtractQuantity = async (event) => {
+const subtractQuantity =  async (event) => {
     const id = event.target.classList[1];
-    const quantity = document.querySelector("#displayQuantity").textContent.slice(2,3);
-    let quantityNum = parseInt(quantity);
-    quantityNum--;
+    await fetchEditCart('subtract', id);
 
-    const response = await fetch(`${baseUrl}/customers/${currentUser._id}`, {
-        method: "GET",
-        headers: {
-            'Content-type' : 'application/json'
-        }
-    })
-
-    const customerData =  await response.json();
-    const data = customerData.data;
-    for(let item of data.cart) {
-        if(item.clothesId === id) {
-            item.quantity--;
-        }
-    }
     window.location.href = `${baseUrl}/customers/cart`;
-
-    // document.querySelector("#displayQuantity").innerHTML = `<span onclick="subtractQuantity()" class="subtract-quantity">-</span> ${quantityNum} <span class="add-quantity" onclick="addQuantity()">+</span>`
-
 }
 
 

@@ -112,7 +112,7 @@ router.put('/addToCart/:id', CustomerController.addToCart)
 router.put('/order/:id', CustomerController.orderClothes)
 
 // Edit Cart
-router.get('/cart/editItem/:id', CustomerController.customerEditCart);
+router.put('/cart/editItem/:id', CustomerController.customerEditCart);
 
 
 module.exports = router;

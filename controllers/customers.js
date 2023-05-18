@@ -297,9 +297,7 @@ const customerEditCart = async (req, res) => {
         const customerCart = response.cart;
 
         for(let item of customerCart) {
-            // Only put 2 equal signs here because it gonna cause error because of ObjectId type in js if I use 3 equal signs
             if(item.clothesId == incomingData.clothesId) {
-                console.log('hi');
                 if(incomingData.operation === 'add') {
                     item.quantity++;
                     editCart.push(item);
@@ -319,7 +317,6 @@ const customerEditCart = async (req, res) => {
         const newCart = {
             cart: editCart
         }
-        console.log(editCart);
         const updateCart = await CustomerModel.findByIdAndUpdate(id, newCart, {returnOriginal: false});
         return res.status(200).json({
             message: "Edited Item in Cart Successully",
