@@ -1,3 +1,6 @@
+body{
+    font-family: 'Outfit';
+}
 .main-container{
     display: grid;
     place-items: center;
@@ -80,11 +83,12 @@ tr{
 
 }
 
-.quantity{
-    background: #d3d3d3;
-    border: 1px solid #ACACAC;
-    border-radius: 5px;
+.quantity span{
+    background: rgb(188, 188, 188);
     padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
 }
 
 .price-container h3{

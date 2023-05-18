@@ -6,6 +6,8 @@ function myFunction() {
       x.className = "nav-list";
     }
   }
+
+
 // Log out
 const logout = () => {
     console.log('hi');
@@ -74,8 +76,9 @@ const fetchCartClothes = async () => {
                 </div>
             </td>
     
-            <td>
-                <div class="quantity">${item.quantity}</div>
+            <td class="quantity">
+                <div class="displayQuantity" id="displayQuantity"><span onclick="subtractQuantity(event)" class="subtract-quantity ${item.clothesId}">-</span> ${item.quantity} <span class="add-quantity ${item.clothesId}" onclick="addQuantity(event)">+</span></div>
+
             </td>
     
             <td class="price-container">
@@ -161,6 +164,57 @@ const applyCoupon = async () => {
     displayTotal.innerHTML = `${totalPrice - discount}`;
 
 }
+
+
+const addQuantity =  async (event) => {
+    const id = event.target.classList[1];
+    const quantity = document.querySelector("#displayQuantity").textContent.slice(2,3);
+    let quantityNum = parseInt(quantity);
+    quantityNum--;
+
+    const response = await fetch(`${baseUrl}/customers/${currentUser._id}`, {
+        method: "GET",
+        headers: {
+            'Content-type' : 'application/json'
+        }
+    })
+
+    const customerData =  await response.json();
+    const data = customerData.data;
+    for(let item of data.cart) {
+        if(item.clothesId === id) {
+            item.quantity = item.quantity + 1;
+        }
+    }
+    window.location.href = `${baseUrl}/customers/cart`;
+}
+
+const subtractQuantity = async (event) => {
+    const id = event.target.classList[1];
+    const quantity = document.querySelector("#displayQuantity").textContent.slice(2,3);
+    let quantityNum = parseInt(quantity);
+    quantityNum--;
+
+    const response = await fetch(`${baseUrl}/customers/${currentUser._id}`, {
+        method: "GET",
+        headers: {
+            'Content-type' : 'application/json'
+        }
+    })
+
+    const customerData =  await response.json();
+    const data = customerData.data;
+    for(let item of data.cart) {
+        if(item.clothesId === id) {
+            item.quantity--;
+        }
+    }
+    window.location.href = `${baseUrl}/customers/cart`;
+
+    // document.querySelector("#displayQuantity").innerHTML = `<span onclick="subtractQuantity()" class="subtract-quantity">-</span> ${quantityNum} <span class="add-quantity" onclick="addQuantity()">+</span>`
+
+}
+
 
 // Search Bar Function
 const searchBar = () => {

@@ -1,0 +1,190 @@
+body{
+    font-family: "Outfit";
+    background-color: rgb(219, 219, 219);
+
+}
+
+h1{
+    margin-left: 5%;
+}
+.margin-top{
+    margin-top: 10%;
+}
+
+.whiteline-container{
+    display:grid; grid-template-columns: 100%;align-items: center
+}
+.whiteline{
+    background-color: #B1B1B1;;
+    border-radius: 5px;
+    height: 1px;
+}
+
+.payment-whiteline{
+    grid-row: 3/4;
+    grid-column: 1/4;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 49% 1% 49%;
+    place-items: start center;
+    margin:5%;
+}
+
+.customer-info-container{
+    background: white;
+    border-radius: 20px;
+    
+    width: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.shipping-container, .payment-container{
+    margin: 30px;
+}
+
+.items-container{
+    background: white;
+}
+
+
+.input-container input, .select-container select{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid rgb(196, 196, 196);
+    margin-top: 5px;
+    width: 100%;
+
+}
+
+.country-container{
+    display: grid;
+    grid-template-columns: 30% 5% 30% 5% 30%;
+    width: 100%;
+}
+
+/* .country-container .input-container input{
+    width: 100%;
+} */
+
+.state-selection{
+    grid-column: 3/4;
+}
+.postal-code-block{
+    grid-column: 5/6;
+}
+
+.input-container, .select-container{
+    margin-top: 20px;
+}
+
+.customer-name{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    width: 100%;
+}
+
+.customer-name .input-container input{
+    width: 90%;
+}
+
+.card-details{
+    display: grid;
+    grid-template-columns: 47% 6% 47%;
+}
+
+.credit-card-container{
+    grid-column: 1/4;
+    width: 100%;
+}
+
+.expiry-date-container{
+    grid-column: 1/2;
+    grid-row: 2/3;
+}
+
+.cvv-container{
+    grid-column: 3/4;
+    grid-row: 2/3;
+}
+
+.price-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+}
+.price-child-container{
+    display: grid;
+    grid-template-columns: 70% 30%;
+}
+
+#purchase{
+    background-color: #1D58F0;
+    color: white;
+    border-radius: 10px;
+    padding: 15px 20px;
+    border: none;
+    margin-top: 20px;
+    transition: all 0.2s ease-in-out;
+}
+
+#purchase:hover{
+    box-shadow: rgba(76, 154, 218, 0.483) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.items-container{
+    background: white;
+    border-radius: 20px;
+    grid-column: 3/4;
+    width: 100%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        
+}
+
+.items-container h2{
+    margin: 30px;
+}
+
+.cart{
+    margin: 30px;
+}
+
+.item-card{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 40%;
+}
+
+
+
+.item-image{
+    width: 100px;
+    height: 120px;
+    grid-row: 1/-1;
+}
+
+.item-name-and-size-color{
+    display: grid;
+    grid-template-columns: 40% 60%;
+
+}
+
+.price, .quantity{
+    text-align: center;
+}
+
+.quantity{
+    border: 1px dotted rgb(109, 45, 45);
+    height: 15px;
+    width: 60px;
+    padding: 5px;
+}
+
+#subtotal{
+    display: grid;
+    grid-template-columns: 60% 40%;
+}
+
+#subtotal p {
+    text-align: center;
+}

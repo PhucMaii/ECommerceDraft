@@ -4,7 +4,7 @@ html{
 
 body{
     background-color: rgb(63, 63, 63);
-    font-family: 'Cormorant Garamond';
+    font-family: 'Outfit';
     margin: 0;
     overflow-x: hidden;
 
@@ -147,15 +147,17 @@ body{
     color: white;
 }
 
-.whiteline-container{
-    display:grid; grid-template-columns: 50%;align-items: center
-}
+
 .flexEnd{
     justify-content: flex-end;
 }
 
 .flexStart{
     justify-content: flex-start;
+}
+
+.whiteline-container{
+    display:grid; grid-template-columns: 50%;align-items: center
 }
 .whiteline{
     background-color: #B1B1B1;;

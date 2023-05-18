@@ -1,0 +1,203 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/customer/order.css">
+
+</head>
+<body>
+    <h1>Here is your last step</h1>
+    <div class="container">
+        
+        <div class="customer-info-container">
+
+            <div class="shipping-container">
+                <h2>Shipping Address</h2>
+                <div class="customer-name  shipping-block">
+                    <div class="input-container">
+                        <label for="firstName">First name</label>
+                        <br>
+                        <input id="customer-first-name" type="text" placeholder="John">
+                    </div>
+    
+                    <div class="input-container">
+                        <label for="lastName">Last name</label>
+                        <br>
+                        <input id="customer-last-name" type="text" placeholder="Smith">
+                    </div>
+                </div>
+    
+                <div class="input-container shipping-block">
+                    <label for="email">Email</label>
+                    <br>
+                    <input id="customer-email-address" type="email" placeholder="you@gmail.com">
+                </div>
+    
+                <div class="input-container  shipping-block">
+                    <label for="address">Address</label>
+                    <br>
+                    <input id="customer-address" type="text" placeholder="1234 Main St">
+                </div>
+    
+                <div class="input-container  shipping-block">
+                    <label for="address2">Address 2 <span>(Optional)</span></label>
+                    <br>
+                    <input id="customer-address2" type="text" placeholder="Apartment or suite">
+                </div>
+                
+                <div class="country-container">
+                    <div class="select-container country-selection">
+                        <label for="country">Country</label>
+                        <br>
+                        <select id="country-options">
+                            <option value="default">Choose...</option>
+                            <option value="canada">Canada</option>
+                        </select>
+                    </div>
+    
+                    <div class="select-container shipping-block state-selection">
+                        <label for="state">State</label>
+                        <br>
+                        <select id="state-options">
+                            <option value="default">Choose...</option>
+                            <option value="british-columbia">British Columbia</option>
+                            <option value="alberta">Alberta</option>
+                            <option value="manitoba">Manitoba</option>
+                            <option value="quebec">Quebec</option>
+                            <option value="ontario">Ontario</option>
+                        </select>
+                    </div>
+    
+                    <div class="input-container shipping-block postal-code-block">
+                        <label for="postal-code">Postal Code</label>
+                        <br>
+                        <input id="customer-postal-code" type="text" placeholder="V3M 2E1">
+                    </div>
+                         
+                </div>
+               
+    
+                <div class="whiteline-container">
+                    <div class="whiteline margin-top" style="height: 1px; margin-bottom: 30px;">
+                    </div>
+                </div>
+    
+            </div>
+           
+            <div class="payment-container">
+                <h2>Payment</h2>
+                <div class="card-details">
+                    <div class="input-container credit-card-container">
+                        <label for="credit-card-number">Credit Card Number</label>
+                        <br>
+                        <input id="credit-card-number" type="text" placeholder="x x x x   x x x x   x x x x   x x x x ">
+                    </div>
+
+                    <div class="input-container expiry-date-container">
+                        <label for="expiry-date">Expiry Date</label>
+                        <br>
+                        <input id="expiry-date" type="text" placeholder="m m  /  y y">
+                    </div>
+
+                    <div class="input-container cvv-container">
+                        <label for="cvv">CVV</label>
+                        <br>
+                        <input id="cvv" type="text" placeholder="x x x">
+                    </div>
+
+                    <div class="whiteline-container payment-whiteline" >
+                        <div class="whiteline margin-top" style="height: 1px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="price-container">
+                    <h2>Total Details</h2>
+                    <div class="subtotal-container price-child-container">
+                        <h4>Subtotal</h4>
+                        <p>$100</p>
+                    </div>
+
+                    <div class="discount-container price-child-container">
+                        <h4>Discount</h4>
+                        <p>$10</p>
+                    </div>
+
+                    <div class="whiteline-container">
+                        <div class="whiteline" style="height: 1px">
+                        </div>
+                    </div>
+
+                    <div class="total-amount-container price-child-container">
+                        <h4>Total Amount</h4>
+                        <p>$90</p>
+                    </div>
+
+                    <button id="purchase">Make Payment</button>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="items-container">
+            <h2>Your Cart</h2>
+            <div class="cart">
+                <div class="item-card">
+                    <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
+                    <div class="item-name-and-color-size">
+                        <div class="item-name">REW T-Shirt</div>
+                        <div class="color-and-size">Black/S</div>
+                    </div>
+                    <div class="quantity">1</div>
+                    <div class="price">$20</div>
+                </div>
+
+                <div class="whiteline-container payment-whiteline" >
+                    <div class="whiteline" style="height: 1px; margin-bottom: 20px; margin-top: 20px">
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image" style="background-image: url('https://images.unsplash.com/photo-1627225924765-552d49cf47ad?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'); background-position: center; background-repeat: no-repeat; background-size: cover;"></div>
+                    <div class="item-name-and-color-size">
+                        <div class="item-name">REW T-Shirt</div>
+                        <div class="color-and-size">Black/S</div>
+                    </div>
+                    <div class="quantity">1</div>
+                    <div class="price">$20</div>
+                </div>
+
+                <div class="whiteline-container payment-whiteline" >
+                    <div class="whiteline" style="height: 1px; margin-bottom: 20px; margin-top: 20px">
+                    </div>
+                </div>
+
+                <div class="item-card">
+                    <div class="item-image"  style="background-image: url('https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80'); background-size: cover; background-repeat: no-repeat;"></div>
+                    <div class="item-name-and-color-size">
+                        <div class="item-name">REW T-Shirt</div>
+                        <div class="color-and-size">Black/S</div>
+                    </div>
+                    <div class="quantity">1</div>
+                    <div class="price">$20</div>
+                </div>
+
+                <div class="whiteline-container">
+                    <div class="whiteline margin-top" style="height: 1px; margin-bottom: 30px;">
+                    </div>
+                </div>
+
+                <div id="subtotal">
+                    <h3>Subtotal</h3>
+                    <p>$ <span>60</span></p>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+</body>
+</html>

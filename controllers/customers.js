@@ -288,6 +288,51 @@ const orderClothes = async (req, res) => {
     }
 }
 
+const customerEditCart = async (req, res) => {
+    const id = req.params.id;
+    const incomingData = req.body;
+    const editCart = [];
+    try{
+        const response = await CustomerModel.findById(id);
+        const customerCart = response.cart;
+
+        for(let item of customerCart) {
+            // Only put 2 equal signs here because it gonna cause error because of ObjectId type in js if I use 3 equal signs
+            if(item.clothesId == incomingData.clothesId) {
+                console.log('hi');
+                if(incomingData.operation === 'add') {
+                    item.quantity++;
+                    editCart.push(item);
+                    
+                } 
+                else if(incomingData.operation === 'subtract') {
+                    item.quantity--;
+                    editCart.push(item)
+                } 
+                else{
+                    editCart.push(item);
+                }
+            } else {
+                editCart.push(item);
+            }
+        } 
+        const newCart = {
+            cart: editCart
+        }
+        console.log(editCart);
+        const updateCart = await CustomerModel.findByIdAndUpdate(id, newCart, {returnOriginal: false});
+        return res.status(200).json({
+            message: "Edited Item in Cart Successully",
+            data: updateCart
+        })
+    } catch(error) {
+        return res.status(500).json({
+            message: "There was an error",
+            error
+        })
+    }
+}   
+
 // Delete customer item in their cart
 const customerDeleteItemInCart = async (req, res) => {
     const id = req.params.id;
@@ -303,12 +348,12 @@ const customerDeleteItemInCart = async (req, res) => {
             if(item._id == incomingData.clothesId) {
                 deletedItem = item;
                 customerCart.splice(customerCart.indexOf(item), 1);
-                console.log(customerCart);
             }
         } 
         const newCart = {
             cart: customerCart
         };
+        console.log(newCart);
         const updateCart = await CustomerModel.findByIdAndUpdate(id, newCart, {returnOriginal: false})
         return res.status(200).json({
             message: "Delete Item in Cart Successully",
@@ -334,5 +379,6 @@ module.exports = {
     showIndividualProduct,
     addToCart,
     orderClothes,
-    customerDeleteItemInCart
+    customerDeleteItemInCart,
+    customerEditCart
 }
