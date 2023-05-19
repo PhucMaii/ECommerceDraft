@@ -109,6 +109,11 @@ h1{
     grid-row: 2/3;
 }
 
+.expiration-input-container{
+    display: flex;
+    gap: 10px;
+}
+
 .price-container{
     display: flex;
     flex-direction: column;

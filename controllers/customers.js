@@ -278,13 +278,15 @@ const orderClothes = async (req, res) => {
         const newOrder = {
             firstName: incomingData.firstName,
             lastName: incomingData.lastName,
+            emailAddress: incomingData.emailAddress,
             address: incomingData.address,
             address2: incomingData.address2,
             country: incomingData.country,
             state: incomingData.state,
             postalCode: incomingData.postalCode,
             creditCardNumber: incomingData.creditCardNumber,
-            expiryDate: incomingData.expiryDate,
+            expirationMonth: incomingData.expirationMonth,
+            expirationYear: incomingData.expirationYear,
             cvv: incomingData.cvv,
             itemList: response.cart
         };

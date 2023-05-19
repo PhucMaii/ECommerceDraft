@@ -55,7 +55,7 @@
                         <br>
                         <select id="country-options">
                             <option value="default">Choose...</option>
-                            <option value="canada">Canada</option>
+                            <option value="Canada">Canada</option>
                         </select>
                     </div>
     
@@ -64,11 +64,11 @@
                         <br>
                         <select id="state-options">
                             <option value="default">Choose...</option>
-                            <option value="british-columbia">British Columbia</option>
-                            <option value="alberta">Alberta</option>
-                            <option value="manitoba">Manitoba</option>
-                            <option value="quebec">Quebec</option>
-                            <option value="ontario">Ontario</option>
+                            <option value="British-Columbia">British Columbia</option>
+                            <option value="Alberta">Alberta</option>
+                            <option value="Manitoba">Manitoba</option>
+                            <option value="Quebec">Quebec</option>
+                            <option value="Ontario">Ontario</option>
                         </select>
                     </div>
     
@@ -100,7 +100,13 @@
                     <div class="input-container expiry-date-container">
                         <label for="expiry-date">Expiry Date</label>
                         <br>
-                        <input maxlength="5" id="expiry-date" type="text" placeholder="m m  /  y y">
+                        <div class="expiration-input-container">
+                            <input maxlength="5" oninput="validateNumber(event)" id="expirationMonth" pattern="(0[1-9]|1[0-2])" type="text" placeholder="m m">
+                            <p>/</p>
+                            <input maxlength="5" id="expirationYear" type="number" min="2023" max="2030" placeholder="y y y y">
+                        </div>
+                       
+
                     </div>
 
                     <div class="input-container cvv-container">

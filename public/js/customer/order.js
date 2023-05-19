@@ -109,10 +109,10 @@ const applyCoupon = async () => {
             count += 1;
         }
     }
+
     if(count == cData.length) {
         notification.innerHTML += `<div class="alert-error">Coupon Doesn't Exist</div>`
     }
-
     const discount = amountOfDiscount < 1? totalPrice * amountOfDiscount : amountOfDiscount
     // Add Discount 
     const displayDiscount = document.querySelector('#discount');
@@ -122,7 +122,45 @@ const applyCoupon = async () => {
 
 }
 
+const getCustomerOrderInfo = async () => {
+    const customerFirstName = document.querySelector('#customer-first-name').value;
+    const customerLastName = document.querySelector('#customer-last-name').value;
+    const customerEmailAddress = document.querySelector('#customer-email-address').value;
+    const customerAddress = document.querySelector('#customer-address').value;
+    const customerAddress2 = document.querySelector('#customer-address2').value;
+    const country = document.querySelector('#country-options').value;
+    const state = document.querySelector('#state-options').value;
+    const postalCode = document.querySelector('#customer-postal-code').value;
 
+    const creditCardNumber = document.querySelector('#credit-card-number').value;
+    const expirationMonth = document.querySelector('#expirationMonth').value;
+    const expirationYear = document.querySelector('#expirationYear').value;
+    const cvv = document.querySelector('#cvv').value;
+
+    const newOrder = {
+        firstName: customerFirstName,
+        lastName: customerLastName,
+        emailAddress: customerEmailAddress,
+        address: customerAddress,
+        address2: customerAddress2,
+        country: country,
+        state: state,
+        postalCode: postalCode,
+        creditCardNumber: creditCardNumber,
+        expirationMonth: expirationMonth,
+        expirationYear: expirationYear,
+        cvv: cvv
+    };
+
+    const orderResponse = await fetch(`${baseUrl}/customers/order/${currentUser._id}`, {
+        method: "PUT",
+        body: JSON.stringify(newOrder),
+        headers: {
+            'Content-type': 'application/json'
+        }
+    })
+    
+}
 
 // only allow user to input number
 function validateNumber(event) {

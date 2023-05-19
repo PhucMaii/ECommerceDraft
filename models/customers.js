@@ -7,6 +7,9 @@ const OrderSchema = new mongoose.Schema({
   lastName: {
     type: String
   },
+  email:{
+    type: String
+  },
   address: {
     type: String
   },
@@ -25,8 +28,11 @@ const OrderSchema = new mongoose.Schema({
   creditCardNumber: {
     type: String
   },
-  expiryDate: {
+  expirationMonth: {
     type: String
+  },
+  expirationYear: {
+    type: Number
   },
   cvv: {
     type: String
