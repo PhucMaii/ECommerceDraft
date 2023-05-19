@@ -88,6 +88,12 @@ router.get('/cart/purchaseMethod', (req, res) => {
     res.sendFile(filePath);
 })
 
+
+router.get('/cart/purchaseMethod/purchaseSuccessfully', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html','customer', 'thankYouPage.html');
+    res.sendFile(filePath);
+})
+
 router.put('/cart/deleteItem/:id', CustomerController.customerDeleteItemInCart)
 
 // Customer Sign Up

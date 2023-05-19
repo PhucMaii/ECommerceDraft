@@ -8,6 +8,14 @@ function myFunction() {
   }
 
 
+
+
+// FETCH API
+const baseUrl = "http://localhost:2000/api/v1";
+
+const currentUser = JSON.parse(localStorage.getItem('current-user'));
+const token = localStorage.getItem('access-token')
+
 // Log out
 const logout = () => {
     console.log('hi');
@@ -22,13 +30,6 @@ const logout = () => {
       window.location.href = `${baseUrl}/customers/signup`
     }
   }
-
-// FETCH API
-const baseUrl = "http://localhost:2000/api/v1";
-
-const currentUser = JSON.parse(localStorage.getItem('current-user'));
-const token = localStorage.getItem('access-token')
-
 // get total price from the fetchCartClothes and then use it for the applyCoupon function
 let totalPrice = 0;
 

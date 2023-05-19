@@ -11,9 +11,10 @@
 </head>
 <body>
     <h1>Here is your last step</h1>
+    <h1 class="alert-error" id="cart-empty-notification"></h1>
     <div class="container">
         
-        <div class="customer-info-container">
+        <form class="customer-info-container" onsubmit="getCustomerOrderInfo(event)">
 
             <div class="shipping-container">
                 <h2>Shipping Address</h2>
@@ -21,26 +22,26 @@
                     <div class="input-container">
                         <label for="firstName">First name</label>
                         <br>
-                        <input id="customer-first-name" type="text" placeholder="John">
+                        <input required id="customer-first-name" type="text" placeholder="John">
                     </div>
     
                     <div class="input-container">
                         <label for="lastName">Last name</label>
                         <br>
-                        <input id="customer-last-name" type="text" placeholder="Smith">
+                        <input required id="customer-last-name" type="text" placeholder="Smith">
                     </div>
                 </div>
     
                 <div class="input-container shipping-block">
                     <label for="email">Email</label>
                     <br>
-                    <input id="customer-email-address" type="email" placeholder="you@gmail.com">
+                    <input required id="customer-email-address" type="email" placeholder="you@gmail.com">
                 </div>
     
                 <div class="input-container  shipping-block">
                     <label for="address">Address</label>
                     <br>
-                    <input id="customer-address" type="text" placeholder="1234 Main St">
+                    <input required id="customer-address" type="text" placeholder="1234 Main St">
                 </div>
     
                 <div class="input-container  shipping-block">
@@ -53,16 +54,17 @@
                     <div class="select-container country-selection">
                         <label for="country">Country</label>
                         <br>
-                        <select id="country-options">
+                        <select required id="country-options">
                             <option value="default">Choose...</option>
                             <option value="Canada">Canada</option>
                         </select>
+                        <div class="alert-error" id="country-notification"></div>
                     </div>
     
                     <div class="select-container shipping-block state-selection">
                         <label for="state">State</label>
                         <br>
-                        <select id="state-options">
+                        <select required id="state-options">
                             <option value="default">Choose...</option>
                             <option value="British-Columbia">British Columbia</option>
                             <option value="Alberta">Alberta</option>
@@ -70,12 +72,13 @@
                             <option value="Quebec">Quebec</option>
                             <option value="Ontario">Ontario</option>
                         </select>
+                        <div class="alert-error" id="state-notification"></div>
                     </div>
     
                     <div class="input-container shipping-block postal-code-block">
                         <label for="postal-code">Postal Code</label>
                         <br>
-                        <input id="customer-postal-code" type="text" placeholder="V3M 2E1">
+                        <input required id="customer-postal-code" type="text" placeholder="V3M 2E1">
                     </div>
                          
                 </div>
@@ -94,16 +97,16 @@
                     <div class="input-container credit-card-container">
                         <label for="credit-card-number">Credit Card Number</label>
                         <br>
-                        <input oninput="validateNumber(event)" onkeydown="disableSpaceKey(event)" id="credit-card-number" maxlength="12" type="text" placeholder="x x x x   x x x x   x x x x   x x x x ">
+                        <input required oninput="validateNumber(event)" onkeydown="disableSpaceKey(event)" id="credit-card-number" maxlength="12" type="text" placeholder="x x x x   x x x x   x x x x   x x x x ">
                     </div>
 
                     <div class="input-container expiry-date-container">
                         <label for="expiry-date">Expiry Date</label>
                         <br>
                         <div class="expiration-input-container">
-                            <input maxlength="5" oninput="validateNumber(event)" id="expirationMonth" pattern="(0[1-9]|1[0-2])" type="text" placeholder="m m">
+                            <input required maxlength="2" oninput="validateNumber(event)" id="expirationMonth" pattern="(0[1-9]|1[0-2])" type="text" placeholder="m m">
                             <p>/</p>
-                            <input maxlength="5" id="expirationYear" type="number" min="2023" max="2030" placeholder="y y y y">
+                            <input required maxlength="4" id="expirationYear" type="number" min="2023" max="2030" placeholder="y y y y">
                         </div>
                        
 
@@ -112,7 +115,7 @@
                     <div class="input-container cvv-container">
                         <label for="cvv">CVV</label>
                         <br>
-                        <input maxlength="3" oninput="validateNumber(event)" id="cvv" type="text" placeholder="x x x">
+                        <input required maxlength="3" oninput="validateNumber(event)" id="cvv" type="text" placeholder="x x x">
                     </div>
 
                     <div class="whiteline-container payment-whiteline" >
@@ -140,7 +143,7 @@
                 </div>
 
             </div>
-        </div>
+        </form>
 
 
         <div class="items-container">

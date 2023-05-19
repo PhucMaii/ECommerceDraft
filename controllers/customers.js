@@ -290,8 +290,11 @@ const orderClothes = async (req, res) => {
             cvv: incomingData.cvv,
             itemList: response.cart
         };
-        response.orders.push(newOrder);
         
+        response.orders.push(newOrder);
+
+        // when the user make an order, their cart is refreshed, which means is set to empty
+        response.cart = [];
         await response.save();        
         return res.status(200).json({
             message: "Order Placed Successfully",

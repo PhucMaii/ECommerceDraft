@@ -14,6 +14,16 @@ const fetchUserInfo = async () => {
     })
     const customerData = await response.json();
     const data = customerData.data;
+
+    if(data.cart.length === 0) {
+        const notification = document.querySelector('#cart-empty-notification');
+        notification.innerHTML = '';
+        notification.innerHTML += 'Your Cart Is Empty Now';
+        setTimeout(() => {
+            window.location.href = `${baseUrl}/customers/dashboard`
+
+        },2000)
+    }
     return data;
 }
 
@@ -122,7 +132,8 @@ const applyCoupon = async () => {
 
 }
 
-const getCustomerOrderInfo = async () => {
+const getCustomerOrderInfo = async (event) => {
+    event.preventDefault();
     const customerFirstName = document.querySelector('#customer-first-name').value;
     const customerLastName = document.querySelector('#customer-last-name').value;
     const customerEmailAddress = document.querySelector('#customer-email-address').value;
@@ -136,6 +147,21 @@ const getCustomerOrderInfo = async () => {
     const expirationMonth = document.querySelector('#expirationMonth').value;
     const expirationYear = document.querySelector('#expirationYear').value;
     const cvv = document.querySelector('#cvv').value;
+
+    const countryNotification = document.querySelector('#country-notification');
+    countryNotification.innerHTML = '';
+    const stateNotification = document.querySelector('#state-notification');
+    stateNotification.innerHTML = '';
+
+    if(country === "default") {
+        countryNotification.innerHTML += "Please select the country";
+        return;
+    }
+    if(state === "default") {
+        stateNotification.innerHTML += "Please select the state";
+        return;
+    }
+
 
     const newOrder = {
         firstName: customerFirstName,
@@ -160,6 +186,15 @@ const getCustomerOrderInfo = async () => {
         }
     })
     
+    const orderData = await orderResponse.json();
+    if(orderData.error){
+        console.log(orderData.error)
+    } else {
+        window.location.href = `${baseUrl}/customers/cart/purchaseMethod/purchaseSuccessfully`
+
+    }
+
+
 }
 
 // only allow user to input number
