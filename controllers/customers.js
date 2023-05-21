@@ -296,10 +296,10 @@ const orderClothes = async (req, res) => {
             const quantity = item.quantity;
             const clothesResponse = await ClothesModel.findById(item.clothesId);
 
-            if(!response.sales) {
-                response.sales = quantity;
+            if(!clothesResponse.sales) {
+                clothesResponse.sales = quantity;
             } else {
-                response.sales += quantity;
+                clothesResponse.sales += quantity;
             }
 
             clothesResponse.quantity -= quantity;
@@ -344,7 +344,19 @@ const orderOneItem = async (req, res) => {
             cvv: incomingData.cvv,
             itemList: incomingData.item
         };
-        
+
+        const quantity = incomingData.item.quantity;
+        const clothesResponse = await ClothesModel.findById(incomingData.item.clothesId);
+
+        if(!clothesResponse.sales) {
+            clothesResponse.sales = quantity;
+        } else {
+            clothesResponse.sales += quantity;
+        }
+
+        clothesResponse.quantity -= quantity;
+        await clothesResponse.save();
+
         response.orders.push(newOrder);
         await response.save();        
         return res.status(200).json({

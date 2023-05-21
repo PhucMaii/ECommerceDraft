@@ -51,7 +51,10 @@ const OrderSchema = new mongoose.Schema({
     quantity: {
       type: Number
     }
-  }]
+  }],
+}, {
+  timestamps: true
+
 });
 
 const CustomerSchema = new mongoose.Schema({

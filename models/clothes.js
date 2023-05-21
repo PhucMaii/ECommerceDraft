@@ -51,6 +51,9 @@ const ClothesSchema = new mongoose.Schema({
     },
     sales: {
         type: Number
+    },
+    salesDate: {
+        type: [Date]
     }
 
 }, {

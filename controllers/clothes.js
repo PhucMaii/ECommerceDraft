@@ -265,6 +265,7 @@ const orderClothes = async (req, res) => {
     }
 }
 
+
 module.exports = {
     createClothes,
     updateClothes,
@@ -272,5 +273,5 @@ module.exports = {
     getAllClothes,
     getClothesById,
     getClothesByType,
-    orderClothes
+    orderClothes,
 }

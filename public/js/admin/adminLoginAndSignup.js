@@ -79,7 +79,7 @@ const loginFormSubmit =  async (event) => {
     if(res.token) {
         notification.innerHTML +=  `<div class="alert-successfully">${res.message}</div>`
         localStorage.setItem('access-token', res.token),
-        localStorage.setItem('current-user', JSON.stringify(res.data));
+        localStorage.setItem('current-admin', JSON.stringify(res.data));
         setTimeout(() => {
             window.location.href = `${baseUrl}/admins/dashboard`
         }, 3000)

@@ -27,6 +27,8 @@ router.get('/', ClothesController.getAllClothes);
 router.put('/order/:id', ClothesController.orderClothes);
 
 // Get Clothes By Type
-router.get('/type/:type', ClothesController.getClothesByType)
+router.get('/type/:type', ClothesController.getClothesByType);
+
+
 
 module.exports = router;
