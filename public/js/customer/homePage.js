@@ -12,12 +12,12 @@ const baseUrl = 'http://localhost:2000/api/v1';
 
 const getUserInfo = () => {
   const userInfo = JSON.parse(localStorage.getItem('current-user'));
-  if(!userInfo) {
+  if (!userInfo) {
     alert("You need to log in to get access");
     window.location.href = `${baseUrl}/customers/signup`
   }
 }
-
+getUserInfo();
 // Log out
 const logout = () => {
   console.log('hi');
@@ -27,7 +27,7 @@ const logout = () => {
 
 
 
-const fetchClothes = async () =>  {
+const fetchClothes = async () => {
   const response = await fetch(`${baseUrl}/clothes`, {
     method: "GET",
     headers: {
@@ -43,7 +43,7 @@ const fetchClothes = async () =>  {
   const data = res.data;
   // get best seller item by sorting the data by their sales
   const bestSeller = data.map((obj) => {
-    if(!obj.hasOwnProperty('sales')) {
+    if (!obj.hasOwnProperty('sales')) {
       obj.sales = 0;
     }
     return obj;
@@ -51,13 +51,13 @@ const fetchClothes = async () =>  {
 
   const newArrival = [];
   // const bestSeller = [];
-  for(let i = 0; i < data.length; i++) {
-    if(data[i].isNewArrival) {
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].isNewArrival) {
       newArrival.push(data[i]);
     }
   }
   // console.log(bestSeller);
-  for (let i = 0; i < 4 ; i++){
+  for (let i = 0; i < 4; i++) {
     newArrivalClothesSection.innerHTML += `
     <div class="clothes-card" >
       <div style="background-image: url('${newArrival[i].img}'); " class="image-background"></div>
@@ -71,7 +71,7 @@ const fetchClothes = async () =>  {
   `
   }
 
-  for (let i = 0; i < 4; i++){
+  for (let i = 0; i < 4; i++) {
     bestSellerSection.innerHTML += `
     <div class="clothes-card" >
       <div style="background-image: url('${bestSeller[i].img}'); " class="image-background" ></div>
@@ -113,6 +113,12 @@ const homeNav = () => {
   window.location.href = `${baseUrl}/customers/dashboard`;
 }
 
+// go to new topic page
+const toNewTopicPage = () => {
+  window.location.href = `${baseUrl}/customers/dashboard/newTopic`
+}
+
+
 // Shop Nav
 const shopNav = () => {
   window.location.href = `${baseUrl}/customers/allClothes`;
@@ -128,6 +134,5 @@ const cartNav = () => {
   window.location.href = `${baseUrl}/customers/cart`;
 }
 fetchClothes();
-getUserInfo();
 
 

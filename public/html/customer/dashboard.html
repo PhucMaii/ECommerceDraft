@@ -3,19 +3,20 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/customer/cart.css">
-    <link rel="stylesheet" href="/css/customer/main.css">
-    <script src="/js/customer/cart.js" defer></script>
+    <title>REW</title>
+    <link rel="stylesheet"  href="/css/customer/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Libre+Baskerville&family=Merriweather+Sans:wght@400;500&family=Montserrat:wght@500&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+    <script src="/js/customer/dashboard.js" defer></script>
+
 </head>
 <body>
     <div class="navBar">
         <div class="logo" style="background-image: url('/img/logo.png'); background-size: cover; background-repeat: no-repeat; border-radius: 50%;"></div>
 
         <nav>
+
             <ul class="nav-list" id="topNav">
                 <li onclick="homeNav()">Home</li>
                 <li id="dropDown-menu">
@@ -30,11 +31,11 @@
                     </ul>
                 </li>
 
-
                 <li>Contact</li>
                 <li>About</li>
                 <li onclick="cartNav()">Your Cart</li>
-                <li onclick="logout()">Log out</li>
+                <li onclick="login()">Log in</li>
+
 
             </ul>
             <a href="#" class="icon" onclick="myFunction()">
@@ -46,52 +47,40 @@
         </div>
     </div>
 
-    <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
-        <div class="whiteline" style="height: 1px; margin: 30px 0;">
+    <div class="newTopic" style="background-image: url('/img/newTopic.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center center">
+        <button onclick="toNewTopicPage()" class="shopNewTopicButton">Shop now</button>
+    </div>
+
+    <div class="whiteline-container flexEnd">
+        <div class="whiteline m-top">
         </div>
     </div>
+    <div class="displayGrid" id="newArrivalClothes-container">
+        <div class=" elipse-background toRight flexEnd">
+            <h1 class="title marginRight">New Arrival</h1>
+        </div>
+        <div id="newArrivalClothes" class="clothes-container">
+            
+        </div>
 
-    <div class="title-container">
-        <h2>SHOPPING CART</h2>
     </div>
 
-    <div class="main-container">
-
-        <div class="outer-container">
-            <div class="show-cart">
-                <table class="show-cart-table" id="show-cart-table">
-                    <tr class="table-head">
-                        <th>PRODUCT</th>
-                        <th>QUANTITY</th>
-                        <th>PRICE</th>
-                    </tr>
-
-                   
-
-                </table>
-            </div>  
-
-            <div class="payment-container">
-
-                <div class="show-price-container">
-                    <div class="payment" id="show-price">
-
-                    </div>
-
-                    <div class="button-container">
-                        <button onclick="moveToOrderPage()" class="purchase-button">Make a purchase</button>
-
-                    </div>
-                </div>
-                
-            </div>
-
-            <button onclick="continueShopping()" class="continue-shopping">Continue Shopping</button>
+    <div class="whiteline-container flexStart">
+        <div class="whiteline m-top">
         </div>
     </div>
+    <div class="displayGrid" id="bestSellerClothes-container">
+       
+        <div class="clothes-container" id="bestSellerClothes">
 
-    <div style="display:grid; justify-content:center; grid-template-columns: 90%;align-items: center;">
-        <div class="whiteline" style="height: 1px; margin: 50px 0;">
+        </div>
+
+        <div class=" elipse-background toLeft flexStart" >
+            <h1 class="title marginLeft" id="bestSellerTitle">Best Seller</h1>
+        </div>
+    </div>
+    <div style="display:grid; justify-content:center; grid-template-columns: 75%;align-items: center;">
+        <div class="whiteline m-top" style="height: 1px; margin-bottom: 30px;">
         </div>
     </div>
     <footer class="center">

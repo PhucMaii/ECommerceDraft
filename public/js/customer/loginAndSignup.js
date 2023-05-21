@@ -5,7 +5,7 @@ const changePageBtnLogin = document.querySelector('#changePageBtnLogin');
 const signupPage = document.querySelector('#signupPage');
 const loginPage = document.querySelector('#loginPage');
 
-function toLoginPage(){
+function toLoginPage() {
     signupPage.classList.add('up');
     loginPage.classList.add('up')
 }
@@ -33,7 +33,7 @@ const signUpFormSubmit = async (event) => {
     const newCustomer = {
         name: name.value,
         email: email.value,
-        password: password.value 
+        password: password.value
     }
 
     const response = await fetch(`${baseUrl}/customers/signup`, {
@@ -49,8 +49,8 @@ const signUpFormSubmit = async (event) => {
     // Add notification for user if their password and confirm password doesn't match
     emailNotification.innerHTML = '';
     confirmPasswordNotification.innerHTML = '';
-    if(!res.error) {
-        if (password.value === confirmPassword.value ) {
+    if (!res.error) {
+        if (password.value === confirmPassword.value) {
 
             emailNotification.innerHTML += `<div class="alert-successfully">${res.message}</div>`
             // Move to login section when they signup successfully
@@ -58,9 +58,9 @@ const signUpFormSubmit = async (event) => {
                 toLoginPage();
             }, 2000)
 
-            
+
         } else {
-    
+
             confirmPasswordNotification.innerHTML += `<div class="alert-error">Password Doesn't Match</div>`
         }
     } else {
@@ -71,7 +71,7 @@ const signUpFormSubmit = async (event) => {
 }
 
 
-const loginFormSubmit =  async (event) => {
+const loginFormSubmit = async (event) => {
     event.preventDefault();
     const email = document.querySelector('#login-email');
     const password = document.querySelector('#login-password');
@@ -80,7 +80,7 @@ const loginFormSubmit =  async (event) => {
 
     const userData = {
         email: email.value,
-        password: password.value 
+        password: password.value
     }
 
     const response = await fetch(`${baseUrl}/customers/login`, {
@@ -93,16 +93,16 @@ const loginFormSubmit =  async (event) => {
     const res = await response.json();
     notification.innerHTML = "";
     // Check to see if the response give me the token of the user
-    if(res.token) {
-        notification.innerHTML +=  `<div class="alert-successfully">${res.message}</div>`
+    if (res.token) {
+        notification.innerHTML += `<div class="alert-successfully">${res.message}</div>`
         localStorage.setItem('access-token', res.token),
-        localStorage.setItem('current-user', JSON.stringify(res.data));
+            localStorage.setItem('current-user', JSON.stringify(res.data));
         setTimeout(() => {
             window.location.href = `${baseUrl}/customers/dashboard`
         }, 3000)
 
     } else {
-        notification.innerHTML +=  `<div class="alert-error">${res.message}</div>`
+        notification.innerHTML += `<div class="alert-error">${res.message}</div>`
     }
 
 

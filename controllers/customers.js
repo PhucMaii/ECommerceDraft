@@ -291,6 +291,20 @@ const orderClothes = async (req, res) => {
             itemList: response.cart
         };
         
+        // if user order clothes, the clothes quantity is decreased and its sales is increased
+        for(let item of response.cart) {
+            const quantity = item.quantity;
+            const clothesResponse = await ClothesModel.findById(item.clothesId);
+
+            if(!response.sales) {
+                response.sales = quantity;
+            } else {
+                response.sales += quantity;
+            }
+
+            clothesResponse.quantity -= quantity;
+            await clothesResponse.save();
+        }
         response.orders.push(newOrder);
 
         // when the user make an order, their cart is refreshed, which means is set to empty
@@ -308,6 +322,42 @@ const orderClothes = async (req, res) => {
     }
 };
 
+const orderOneItem = async (req, res) => {
+      const id = req.params.id;
+    const incomingData = req.body;
+
+    try {    
+        const response = await CustomerModel.findById(id);
+
+        const newOrder = {
+            firstName: incomingData.firstName,
+            lastName: incomingData.lastName,
+            emailAddress: incomingData.emailAddress,
+            address: incomingData.address,
+            address2: incomingData.address2,
+            country: incomingData.country,
+            state: incomingData.state,
+            postalCode: incomingData.postalCode,
+            creditCardNumber: incomingData.creditCardNumber,
+            expirationMonth: incomingData.expirationMonth,
+            expirationYear: incomingData.expirationYear,
+            cvv: incomingData.cvv,
+            itemList: incomingData.item
+        };
+        
+        response.orders.push(newOrder);
+        await response.save();        
+        return res.status(200).json({
+            message: "Order Placed Successfully",
+            data: response
+        });
+    } catch(error) {
+        return res.status(500).json({
+            message: "There was an error",
+            error
+        });
+    }
+}
 const customerEditCart = async (req, res) => {
     const id = req.params.id;
     const incomingData = req.body;
@@ -397,5 +447,6 @@ module.exports = {
     addToCart,
     orderClothes,
     customerDeleteItemInCart,
-    customerEditCart
+    customerEditCart,
+    orderOneItem
 }

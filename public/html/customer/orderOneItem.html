@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="x-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/customer/order.css">
+    <script src="/js/customer/orderOneItem.js" defer></script>
+
+</head>
+<body>
+    <h1>Here is your last step</h1>
+    <h1 class="alert-error" id="cart-empty-notification"></h1>
+    <div class="container">
+        
+        <form class="customer-info-container" onsubmit="getCustomerOrderInfo(event)">
+
+            <div class="shipping-container">
+                <h2>Shipping Address</h2>
+                <div class="customer-name  shipping-block">
+                    <div class="input-container">
+                        <label for="firstName">First name</label>
+                        <br>
+                        <input required id="customer-first-name" type="text" placeholder="John">
+                    </div>
+    
+                    <div class="input-container">
+                        <label for="lastName">Last name</label>
+                        <br>
+                        <input required id="customer-last-name" type="text" placeholder="Smith">
+                    </div>
+                </div>
+    
+                <div class="input-container shipping-block">
+                    <label for="email">Email</label>
+                    <br>
+                    <input required id="customer-email-address" type="email" placeholder="you@gmail.com">
+                </div>
+    
+                <div class="input-container  shipping-block">
+                    <label for="address">Address</label>
+                    <br>
+                    <input required id="customer-address" type="text" placeholder="1234 Main St">
+                </div>
+    
+                <div class="input-container  shipping-block">
+                    <label for="address2">Address 2 <span>(Optional)</span></label>
+                    <br>
+                    <input id="customer-address2" type="text" placeholder="Apartment or suite">
+                </div>
+                
+                <div class="country-container">
+                    <div class="select-container country-selection">
+                        <label for="country">Country</label>
+                        <br>
+                        <select required id="country-options">
+                            <option value="default">Choose...</option>
+                            <option value="Canada">Canada</option>
+                        </select>
+                        <div class="alert-error" id="country-notification"></div>
+                    </div>
+    
+                    <div class="select-container shipping-block state-selection">
+                        <label for="state">State</label>
+                        <br>
+                        <select required id="state-options">
+                            <option value="default">Choose...</option>
+                            <option value="British-Columbia">British Columbia</option>
+                            <option value="Alberta">Alberta</option>
+                            <option value="Manitoba">Manitoba</option>
+                            <option value="Quebec">Quebec</option>
+                            <option value="Ontario">Ontario</option>
+                        </select>
+                        <div class="alert-error" id="state-notification"></div>
+                    </div>
+    
+                    <div class="input-container shipping-block postal-code-block">
+                        <label for="postal-code">Postal Code</label>
+                        <br>
+                        <input required id="customer-postal-code" type="text" placeholder="V3M 2E1">
+                    </div>
+                         
+                </div>
+               
+    
+                <div class="whiteline-container">
+                    <div class="whiteline margin-top" style="height: 1px; margin-bottom: 30px;">
+                    </div>
+                </div>
+    
+            </div>
+           
+            <div class="payment-container">
+                <h2>Payment</h2>
+                <div class="card-details">
+                    <div class="input-container credit-card-container">
+                        <label for="credit-card-number">Credit Card Number</label>
+                        <br>
+                        <input required oninput="validateNumber(event)" onkeydown="disableSpaceKey(event)" id="credit-card-number" maxlength="12" type="text" placeholder="x x x x   x x x x   x x x x   x x x x ">
+                    </div>
+
+                    <div class="input-container expiry-date-container">
+                        <label for="expiry-date">Expiry Date</label>
+                        <br>
+                        <div class="expiration-input-container">
+                            <input required maxlength="2" oninput="validateNumber(event)" id="expirationMonth" pattern="(0[1-9]|1[0-2])" type="text" placeholder="m m">
+                            <p>/</p>
+                            <input required maxlength="4" id="expirationYear" type="number" min="2023" max="2030" placeholder="y y y y">
+                        </div>
+                       
+
+                    </div>
+
+                    <div class="input-container cvv-container">
+                        <label for="cvv">CVV</label>
+                        <br>
+                        <input required maxlength="3" oninput="validateNumber(event)" id="cvv" type="text" placeholder="x x x">
+                    </div>
+
+                    <div class="whiteline-container payment-whiteline" >
+                        <div class="whiteline margin-top" style="height: 1px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="coupon-section">
+                    <h4>HAVE ANY COUPON?</h4>
+                    <div class="coupon-input-container">
+                        <input id="coupon-value" type="text" placeholder="Coupon code...">
+                        <button onclick="applyCoupon()" class="coupon-button">Apply</button>
+                        <div id="coupon-notification"></div>
+                    </div>
+                </div>
+                
+                <div class="whiteline-container payment-whiteline" >
+                    <div class="whiteline margin-top" style="height: 1px;">
+                    </div>
+                </div>
+                <div class="price-container" id="price-container">
+                    <h2>Total Details</h2>
+                   
+                </div>
+
+            </div>
+        </form>
+
+
+        <div class="items-container">
+            <h2>Your Cart</h2>
+            <div class="cart" id="item-list">
+              
+                
+    
+            </div>
+            <div id="subtotal">
+                <h3>Subtotal</h3>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -3,7 +3,7 @@
 const baseUrl = "http://localhost:2000/api/v1";
 
 const currentUser = JSON.parse(localStorage.getItem('current-user'));
-const token = localStorage.getItem('access-token')
+const token = localStorage.getItem('access-token');
 
 // Authorize User 
 const getUserInfo = () => {
@@ -15,71 +15,44 @@ const getUserInfo = () => {
 }
 
 getUserInfo();
+const itemToBuy = JSON.parse(localStorage.getItem('itemToBuy'));
 
-const fetchUserInfo = async () => {
-    const response = await fetch(`${baseUrl}/customers/${currentUser._id}`, {
+
+const updateUICart = async () => {
+    const response = await fetch(`${baseUrl}/clothes/${itemToBuy.clothesId}`, {
         method: "GET",
         headers: {
             'Content-type': 'application/json'
         }
     })
-    const customerData = await response.json();
-    const data = customerData.data;
-
-    if(data.cart.length === 0) {
-        const notification = document.querySelector('#cart-empty-notification');
-        notification.innerHTML = '';
-        notification.innerHTML += 'Your Cart Is Empty Now';
-        setTimeout(() => {
-            window.location.href = `${baseUrl}/customers/dashboard`
-
-        },2000)
-    }
-    return data;
-}
-
-
-let totalPrice = 0;
-const updateUICart = async () => {
-    const customerData = await fetchUserInfo();
-    const customerCart = customerData.cart;
-    
+    const clothesData = await response.json();
+    const data = clothesData.data;
     const itemList = document.querySelector('#item-list');
 
-    for(let item of customerCart) {
-        const clothesResponse = await fetch(`${baseUrl}/clothes/${item.clothesId}`, {
-            method: "GET",
-            headers: {
-                'Content-type': 'application/json'
-            }
-        })
-        const clothesData = await clothesResponse.json();
-        const data = clothesData.data;
-        let price = data.price * item.quantity;
-        totalPrice += price;
-        itemList.innerHTML += `<div class="item-card">
-        <div class="item-image" style="background-image: url(${data.img}); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
-        <div class="item-name-and-color-size">
-            <div class="item-name">${data.name}</div>
-            <div class="color-and-size">${item.color}/${item.size}</div>
-        </div>
-        <div class="quantity">${item.quantity}</div>
-        <div class="price">$${price}</div>
+    const price = data.price * itemToBuy.quantity;
+    itemList.innerHTML += `<div class="item-card">
+    <div class="item-image" style="background-image: url(${data.img}); background-position: center; background-repeat: no-repeat; background-size: cover;" ></div>
+    <div class="item-name-and-color-size">
+        <div class="item-name">${data.name}</div>
+        <div class="color-and-size">${itemToBuy.color}/${itemToBuy.size}</div>
+    </div>
+    <div class="quantity">${itemToBuy.quantity}</div>
+    <div class="price">$${price}</div>
     </div>
     <div class="whiteline-container payment-whiteline" >
-                    <div class="whiteline" style="height: 1px; margin-bottom: 20px; margin-top: 20px">
-                    </div>
-                </div>`
-    }
+    <div class="whiteline" style="height: 1px; margin-bottom: 20px; margin-top: 20px">
+    </div>
+    </div>`
+
 
     const subtotal = document.querySelector('#subtotal');
-    subtotal.innerHTML += `<p>$ <span>${totalPrice}</span></p>`
+    subtotal.innerHTML += `<p>$ <span>${price}</span></p>`
 
 
     const priceContainer = document.querySelector('#price-container');
     priceContainer.innerHTML += `  <div class="subtotal-container price-child-container">
             <h4>Subtotal</h4>
-            <p>$${totalPrice}</p>
+            <p>$${price}</p>
         </div>
 
         <div class="discount-container price-child-container">
@@ -94,10 +67,10 @@ const updateUICart = async () => {
 
         <div class="total-amount-container price-child-container">
             <h4>Total Amount</h4>
-            <p id="totalPrice">$${totalPrice}</p>
+            <p id="totalPrice">$${price}</p>
         </div>
 
-        <button id="purchase">Make Payment</button>`
+        <button id="purchase">Make Payment</button>`;
 }
 
 //Apply coupon feature

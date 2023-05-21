@@ -20,13 +20,13 @@ const getUserInfo = () => {
 
 getUserInfo();
 
+// Check if user come to this page by nav bar or by search bar
+const searchValue = localStorage.getItem('search');
+
 // get all clothes
 let itemPerPage = 9;
 let currentPage = 1;
 
-// get type
-const url = window.location.href;
-const clothesType = url.substring(url.lastIndexOf('/') + 1);
 // Get sorted value from local storage
 let sorted = localStorage.getItem('sorted');
 
@@ -37,9 +37,9 @@ const sort = (event) => {
   updatePage();
 }
 
-const fetchAllClothes = async (page, sortOption) => {
+const fetchSameTopicClothes = async () => {
     
-    const response = await fetch(`${baseUrl}/clothes/type/${clothesType}?page=${page}&limit=${itemPerPage}&sorted=${sortOption}`, {
+    const response = await fetch(`${baseUrl}/clothes`, {
         method: "GET",
         headers: {
             'Content-type': 'application/json'  
@@ -47,7 +47,11 @@ const fetchAllClothes = async (page, sortOption) => {
     })
     const clothesData = await response.json();
     const data = clothesData.data;
-    return data;
+
+    const result = data.filter((item) => {
+        return item.topic === "Players";
+    })
+    return result;
 
 
 }
@@ -69,11 +73,11 @@ const fetchIndividualClothes = async (event) => {
 
 
 const updatePage = async () => {
-    const data = await fetchAllClothes(currentPage, sorted);
+    const data = await fetchSameTopicClothes();
 
     const clothesCardContainer = document.querySelector('#clothes-card-container');
     clothesCardContainer.innerHTML = '';
-    for(let item of data.docs) {
+    for(let item of data) {
         clothesCardContainer.innerHTML += `<div class="clothes-card"  >
         <div class="image-background" style="background-image: url(${item.img})"></div>
         <div id=${item._id} class="clothes-type description" onclick="fetchIndividualClothes(event)">
@@ -97,23 +101,6 @@ const goToPage = async (page) => {
     await updatePage();
 }
 
-// Add goToPage function to each of the page navigator
-const pagination = async () => {
-    const response = await fetchAllClothes(currentPage, sorted);
-    const totalPages = response.totalPages;
-
-    const paginationControls = document.querySelector('#pagination-controls');
-    for (let i = 1; i <= totalPages; i++) {
-        const button = document.createElement('button');
-        button.classList.add('page-button');
-        button.textContent = i;
-        button.onclick = () => goToPage(i);
-        paginationControls.appendChild(button);
-    }
-
-}
-pagination();
-
 // Search Bar Function
 const searchBar = () => {
   const searchBarValue = document.querySelector('#searchBar').value;
@@ -121,7 +108,6 @@ const searchBar = () => {
   window.location.href = `${baseUrl}/customers/search`;
 
 }
-
 
 
 // home nav

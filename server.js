@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGODB_URL).then((response) => {
 })
 
 app.get('/', (req, res) => {
-    const filePath = path.join(__dirname, 'public', 'html','customer', 'homePage.html');
+    const filePath = path.join(__dirname, 'public', 'html','customer', 'dashboard.html');
     res.sendFile(filePath);
 })
 

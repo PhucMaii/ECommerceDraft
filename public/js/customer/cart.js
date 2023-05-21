@@ -1,15 +1,21 @@
 function myFunction() {
     var x = document.getElementById("topNav");
     if (x.className === "nav-list") {
-      x.className += " responsive";
+        x.className += " responsive";
     } else {
-      x.className = "nav-list";
+        x.className = "nav-list";
     }
-  }
+}
 
+const getUserInfo = () => {
+    const userInfo = JSON.parse(localStorage.getItem('current-user'));
+    if (!userInfo) {
+        alert("You need to log in to get access");
+        window.location.href = `${baseUrl}/customers/signup`
+    }
+}
 
-
-
+getUserInfo();
 // FETCH API
 const baseUrl = "http://localhost:2000/api/v1";
 
@@ -21,15 +27,9 @@ const logout = () => {
     console.log('hi');
     localStorage.clear();
     window.location.href = `${baseUrl}/customers/signup`
-  }
-  
-  const getUserInfo = () => {
-    const userInfo = JSON.parse(localStorage.getItem('current-user'));
-    if(!userInfo) {
-      alert("You need to log in to get access");
-      window.location.href = `${baseUrl}/customers/signup`
-    }
-  }
+}
+
+
 // get total price from the fetchCartClothes and then use it for the applyCoupon function
 let totalPrice = 0;
 
@@ -48,13 +48,13 @@ const fetchCartClothes = async () => {
     const showCartTable = document.querySelector('#show-cart-table');
 
     // Loop through cart to fetch each item and send UI for each of them
-    if(cart.length === 0) {
+    if (cart.length === 0) {
         showCartTable.innerHTML += "<h2 class='alert-error alert-empty-cart'>Your Cart Is Empty Now. Let's Grab Some Items</h2>";
         setTimeout(() => {
             window.location.href = `${baseUrl}/customers/allClothes`;
         }, 3000)
     } else {
-        for(let item of cart) {
+        for (let item of cart) {
             const clothesResponse = await fetch(`${baseUrl}/clothes/${item.clothesId}`, {
                 method: "GET",
                 headers: {
@@ -63,11 +63,11 @@ const fetchCartClothes = async () => {
             })
             const clothesData = await clothesResponse.json();
             const data = clothesData.data;
-            
+
             // Get price of each clothes
             let price = data.price * item.quantity;
             totalPrice += price;
-    
+
             showCartTable.innerHTML += `   <tr>
             <td class="product-section">
                 <div class="image" style="background-image: url(${data.img}); background-position: center; background-repeat: no-repeat; background-size: cover"></div>
@@ -94,7 +94,7 @@ const fetchCartClothes = async () => {
     
         </tr>`
         }
-    
+
     }
 
     // Show price in UI
@@ -108,10 +108,10 @@ const deleteItemInCart = async (event) => {
     const id = event.target.id;
     const response = await fetch(`${baseUrl}/customers/cart/deleteItem/${currentUser._id}`, {
         method: "PUT",
-        body:JSON.stringify({
+        body: JSON.stringify({
             clothesId: id
         }),
-        headers:{
+        headers: {
             'Content-type': 'application/json'
         }
     })
@@ -129,23 +129,23 @@ const fetchEditCart = async (operation, id) => {
         method: "PUT",
         body: JSON.stringify(incomingData),
         headers: {
-            'Content-type' : 'application/json'
+            'Content-type': 'application/json'
         }
     })
 
-    const customerData =  await response.json();
+    const customerData = await response.json();
     const data = customerData.data;
     return data
 }
 
-const addQuantity =  async (event) => {
+const addQuantity = async (event) => {
     const id = event.target.classList[1];
     await fetchEditCart('add', id);
 
     window.location.href = `${baseUrl}/customers/cart`;
 }
 
-const subtractQuantity =  async (event) => {
+const subtractQuantity = async (event) => {
     const id = event.target.classList[1];
     await fetchEditCart('subtract', id);
 
@@ -158,8 +158,8 @@ const searchBar = () => {
     const searchBarValue = document.querySelector('#searchBar').value;
     localStorage.setItem('search', searchBarValue);
     window.location.href = `${baseUrl}/customers/search`;
-  
-  }  
+
+}
 
 // Continue shopping feature
 const continueShopping = () => {
@@ -180,7 +180,7 @@ const homeNav = () => {
 const shopNav = () => {
     window.location.href = `${baseUrl}/customers/allClothes`;
 }
-  
+
 // Shop specific clothes type nav
 const shopSpecificType = (type) => {
     window.location.href = `${baseUrl}/customers/${type}`;
@@ -189,5 +189,5 @@ const shopSpecificType = (type) => {
 // Cart Nav
 const cartNav = () => {
     window.location.href = `${baseUrl}/customers/cart`;
-  }
+}
 fetchCartClothes();

@@ -27,6 +27,9 @@ const ClothesSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    topic: {
+        type: String
+    },
 
     quantity: {
         type: Number

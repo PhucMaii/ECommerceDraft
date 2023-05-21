@@ -9,14 +9,16 @@ function myFunction() {
 // FETCH API
 const baseUrl = 'http://localhost:2000/api/v1';
 
+// Authorize User 
 const getUserInfo = () => {
-    const userInfo = JSON.parse(localStorage.getItem('current-user'));
-    if(!userInfo) {
+  const userInfo = JSON.parse(localStorage.getItem('current-user'));
+  if (!userInfo) {
       alert("You need to log in to get access");
       window.location.href = `${baseUrl}/customers/signup`
-    }
   }
+}
 
+getUserInfo();
 
 
 // get all clothes

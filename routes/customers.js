@@ -24,6 +24,12 @@ router.get('/dashboard', (req, res) => {
     res.sendFile(filePath);
 });
 
+router.get('/dashboard/newTopic', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html', 'customer', 'newTopic.html');
+    res.sendFile(filePath);
+});
+
+
 // Get signup and login Page
 router.get('/signup', (req, res) => {
     const filePath = path.join(__dirname, '..', 'public', 'html', 'customer','signup.html');
@@ -94,6 +100,14 @@ router.get('/cart/purchaseMethod/purchaseSuccessfully', (req, res) => {
     res.sendFile(filePath);
 })
 
+
+router.get('/cart/purchaseOneItem', (req, res) => {
+    const filePath = path.join(__dirname, '..', 'public', 'html','customer', 'orderOneItem.html');
+    res.sendFile(filePath);
+})
+
+
+
 router.put('/cart/deleteItem/:id', CustomerController.customerDeleteItemInCart)
 
 // Customer Sign Up
@@ -118,7 +132,10 @@ router.get('/', CustomerController.getAllCustomer);
 router.put('/addToCart/:id', CustomerController.addToCart)
 
 // Order Clothes
-router.put('/order/:id', CustomerController.orderClothes)
+router.put('/order/:id', CustomerController.orderClothes);
+
+// Order 1 item
+router.put('/order/oneItem/:id', CustomerController.orderOneItem);
 
 // Edit Cart
 router.put('/cart/editItem/:id', CustomerController.customerEditCart);
