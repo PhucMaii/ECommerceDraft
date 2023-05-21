@@ -6,8 +6,9 @@ function myFunction() {
       x.className = "nav-list";
     }
   }
-// FETCH API
-const baseUrl = 'http://localhost:2000/api/v1';
+
+  const base = "https://ecommerce-xpla.onrender.com";
+  const baseUrl = `${base}/api/v1`;
 
 // Authorize User 
 const getUserInfo = () => {

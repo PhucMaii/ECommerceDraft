@@ -8,7 +8,8 @@ function myFunction() {
     }
 }
 // FETCH API
-const baseUrl = 'http://localhost:2000/api/v1';
+const base = "https://ecommerce-xpla.onrender.com";
+const baseUrl = `${base}/api/v1`;
 
 const login = () => {
     window.location.href = `${baseUrl}/customers/signup`;

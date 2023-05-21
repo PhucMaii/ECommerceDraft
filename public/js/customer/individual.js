@@ -1,3 +1,8 @@
+
+const base = "https://ecommerce-xpla.onrender.com";
+const baseUrl = `${base}/api/v1`;
+
+
 function myFunction() {
     const mainContainer = document.getElementById("main-container");
     var x = document.getElementById("topNav");
@@ -82,7 +87,7 @@ const getUserInfo = () => {
 getUserInfo();
 // Fetch API
 // Take the id from req.params
-const baseUrl = 'http://localhost:2000/api/v1';
+
 const url = window.location.href;
 const clothesId = url.substring(url.lastIndexOf('/') + 1);
 
