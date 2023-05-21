@@ -55,7 +55,7 @@ const customerLogin = async (req, res) => {
             const accessToken = jwt.sign({
                 email: foundCustomer.email,
                 password: foundCustomer.password
-            }, process.env.SECRETKEY)
+            }, process.env.SECRETKEY);
 
             return res.status(200).json({
                 data: foundCustomer,
