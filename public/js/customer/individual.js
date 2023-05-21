@@ -1,5 +1,5 @@
 
-const base = "https://ecommerce-xpla.onrender.com";
+const base = "https://ecommerce-r7tm.onrender.com";
 const baseUrl = `${base}/api/v1`;
 
 
