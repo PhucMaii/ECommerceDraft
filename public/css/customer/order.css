@@ -290,5 +290,8 @@ h1{
         grid-column: 1/4;
         grid-row: 3/4;
     }
+    .payment-whiteline{
+        grid-row: 4/5;
+    }
     
 }
