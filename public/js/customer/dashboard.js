@@ -8,8 +8,8 @@ function myFunction() {
     }
 }
 // FETCH API
-const base = "https://ecommerce-r7tm.onrender.com";
-const baseUrl = `${base}/api/v1`;
+// const base = "https://ecommerce-r7tm.onrender.com";
+const baseUrl = `/api/v1`;
 
 const login = () => {
     window.location.href = `${baseUrl}/customers/signup`;

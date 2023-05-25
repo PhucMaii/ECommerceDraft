@@ -7,8 +7,8 @@ function myFunction() {
     }
   }
 
-  const base = "https://ecommerce-r7tm.onrender.com";
-  const baseUrl = `${base}/api/v1`;
+  // const base = "https://ecommerce-r7tm.onrender.com";
+  const baseUrl = `/api/v1`;
 
 // Authorize User 
 const getUserInfo = () => {
