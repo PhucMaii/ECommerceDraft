@@ -137,10 +137,10 @@ router.get('/compress', async (req, res) => {
   
     try {
       const compressedImageUrl = await compressImage(imageUrl);
-      res.json({ compressedImageUrl });
+      return res.json({ compressedImageUrl });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ error: 'Image compression failed' });
+      return res.status(500).json({ error: 'Image compression failed' });
     }
   });
 
