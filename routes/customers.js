@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-import fetch from isomorphic;
 const router = express.Router();
 const CustomerController = require('../controllers/customers')
 const EventEmitter = require('events');
@@ -106,45 +105,6 @@ router.get('/cart/purchaseOneItem', (req, res) => {
     const filePath = path.join(__dirname, '..', 'public', 'html','customer', 'orderOneItem.html');
     res.sendFile(filePath);
 })
-
-const apiKey = 'N8SqkmVfWSlR5XhR7tl7MkN2YWBXwCF0';
-
-// Compress image using TinyPNG API
-const compressImage = async (imageUrl) => {
-  const response = await fetch('https://api.tinify.com/shrink', {
-    method: 'POST',
-    headers: {
-      Authorization: `Basic ${Buffer.from(`api:${apiKey}`).toString('base64')}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      source: {
-        url: imageUrl,
-      },
-    }),
-  });
-
-  const compressedData = await response.json();
-  console.log()
-
-  if (response.ok) {
-    return compressedData.output.url;
-  } else {
-    throw new Error('Image compression failed');
-  }
-};
-
-router.get('/compress', async (req, res) => {
-    const imageUrl = req.query.url;
-    console.log(imageUrl);
-    try {
-      const compressedImageUrl = await compressImage(imageUrl);
-      return res.json({ compressedImageUrl });
-    } catch (error) {
-      console.error(error);
-      return res.status(500).json({ error: 'Image compression failed' });
-    }
-  });
 
 router.put('/cart/deleteItem/:id', CustomerController.customerDeleteItemInCart)
 

@@ -7,10 +7,8 @@ function myFunction() {
         x.className = "nav-list";
     }
 }
-
 // FETCH API
 // const base = "https://ecommerce-r7tm.onrender.com";
-// const base = "http://localhost:2000";
 const baseUrl = `/api/v1`;
 
 const login = () => {
@@ -49,15 +47,9 @@ const fetchClothes = async () => {
     }
     // console.log(bestSeller);
     for (let i = 0; i < 4; i++) {
-        const response = await fetch(`${baseUrl}/customers/compress?url=${encodeURIComponent(newArrival[i].img)}`);
-        const data = await response.json();
-        let compressedImageUrl;
-        if (response.ok) {
-            compressedImageUrl = data.compressedImageUrl;
-        }
         newArrivalClothesSection.innerHTML += `
       <div class="clothes-card" >
-        <div style="background-image: url('${compressedImageUrl}'); " class="image-background"></div>
+        <div style="background-image: url('${newArrival[i].img}'); " class="image-background"></div>
         <div class="clothes-type" id=${newArrival[i]._id} onclick="fetchIndividualClothes(event)">
             ${newArrival[i].name}
         </div>
@@ -69,16 +61,9 @@ const fetchClothes = async () => {
     }
 
     for (let i = 0; i < 4; i++) {
-        const response = await fetch(`${baseUrl}/customers/compress?url=${encodeURIComponent(newArrival[i].img)}`);
-        const data = await response.json();
-        let compressedImageUrl;
-        if (response.ok) {
-            compressedImageUrl = data.compressedImageUrl;
-        }
-
         bestSellerSection.innerHTML += `
       <div class="clothes-card" >
-        <div style="background-image: url('${compressedImageUrl}'); " class="image-background" ></div>
+        <div style="background-image: url('${bestSeller[i].img}'); " class="image-background" ></div>
         <div class="clothes-type" id=${bestSeller[i]._id} onclick="fetchIndividualClothes(event)">
             ${bestSeller[i].name}
         </div>
