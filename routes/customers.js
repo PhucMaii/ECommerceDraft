@@ -126,6 +126,7 @@ const compressImage = async (imageUrl) => {
   const compressedData = await response.json();
 
   if (response.ok) {
+    console.log(compressedData.output.url, 'CompressedData');
     return compressedData.output.url;
   } else {
     throw new Error('Image compression failed');
@@ -134,7 +135,7 @@ const compressImage = async (imageUrl) => {
 
 router.get('/compress', async (req, res) => {
     const imageUrl = req.query.url;
-  
+    console.log(imageUrl);
     try {
       const compressedImageUrl = await compressImage(imageUrl);
       return res.json({ compressedImageUrl });
