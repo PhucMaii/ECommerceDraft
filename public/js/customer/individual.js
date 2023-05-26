@@ -1,7 +1,7 @@
 
 // const base = "https://ecommerce-r7tm.onrender.com";
+// const base = "http://localhost:2000";
 const baseUrl = `/api/v1`;
-
 
 function myFunction() {
     const mainContainer = document.getElementById("main-container");

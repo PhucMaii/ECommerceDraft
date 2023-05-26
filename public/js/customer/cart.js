@@ -18,6 +18,7 @@ const getUserInfo = () => {
 getUserInfo();
 // FETCH API
 // const base = "https://ecommerce-r7tm.onrender.com";
+// const base = "http://localhost:2000";
 const baseUrl = `/api/v1`;
 
 const currentUser = JSON.parse(localStorage.getItem('current-user'));

@@ -19,6 +19,7 @@ function toSignUpPage() {
 
 
 // const base = "https://ecommerce-r7tm.onrender.com";
+// const base = "http://localhost:2000";
 const baseUrl = `/api/v1`;
 let token;
 const signUpFormSubmit = async (event) => {
