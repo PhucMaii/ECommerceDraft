@@ -132,7 +132,7 @@ const compressImage = async (imageUrl) => {
   }
 };
 
-app.get('/compress', async (req, res) => {
+router.get('/compress', async (req, res) => {
     const imageUrl = req.query.url;
   
     try {
