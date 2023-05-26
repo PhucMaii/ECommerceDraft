@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const fetch = require('node-fetch');
 const router = express.Router();
 const CustomerController = require('../controllers/customers')
 const EventEmitter = require('events');
@@ -124,9 +125,9 @@ const compressImage = async (imageUrl) => {
   });
 
   const compressedData = await response.json();
+  console.log()
 
   if (response.ok) {
-    console.log(compressedData.output.url, 'CompressedData');
     return compressedData.output.url;
   } else {
     throw new Error('Image compression failed');
