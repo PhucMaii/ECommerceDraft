@@ -8,30 +8,6 @@ function myFunction() {
     }
 }
 
-// Compresse image
-const apiKey = "N8SqkmVfWSlR5XhR7tl7MkN2YWBXwCF0";
-const compressImage = async (imageUrl) => {
-    const response = await fetch('https://api.tinify.com/shrink', {
-        method: "POST",
-        headers: {
-            Authorization: `Basic ${btoa(`api:${apiKey}`)}`,
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            source: {
-                url: imageUrl,
-            }
-        })
-    });
-
-    const compressedData = await response.json();
-    console.log(compressedData);
-    if(response.ok) {
-        return compressedData.output.url;
-    } else {
-        throw new Error('Image compression Failed');
-    }
-}
 // FETCH API
 // const base = "https://ecommerce-r7tm.onrender.com";
 // const base = "http://localhost:2000";
@@ -73,7 +49,12 @@ const fetchClothes = async () => {
     }
     // console.log(bestSeller);
     for (let i = 0; i < 4; i++) {
-        const compressedImageUrl = await compressImage(newArrival[i].img);
+        const response = await fetch(`${baseUrl}/customers/compress?url=${encodeURIComponent(newArrival[i].img)}`);
+        const data = await response.json();
+        let compressedImageUrl;
+        if (response.ok) {
+            compressedImageUrl = data.compressedImageUrl;
+        }
         newArrivalClothesSection.innerHTML += `
       <div class="clothes-card" >
         <div style="background-image: url('${compressedImageUrl}'); " class="image-background"></div>
@@ -88,7 +69,12 @@ const fetchClothes = async () => {
     }
 
     for (let i = 0; i < 4; i++) {
-        const compressedImageUrl = await compressImage(newArrival[i].img);
+        const response = await fetch(`${baseUrl}/customers/compress?url=${encodeURIComponent(newArrival[i].img)}`);
+        const data = await response.json();
+        let compressedImageUrl;
+        if (response.ok) {
+            compressedImageUrl = data.compressedImageUrl;
+        }
 
         bestSellerSection.innerHTML += `
       <div class="clothes-card" >
