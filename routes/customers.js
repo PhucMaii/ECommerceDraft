@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const fetch = require('node-fetch');
+import fetch from isomorphic;
 const router = express.Router();
 const CustomerController = require('../controllers/customers')
 const EventEmitter = require('events');
